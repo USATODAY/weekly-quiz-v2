@@ -1,0 +1,91 @@
+.nav-header {
+  color: $medium-grey;
+  margin: 1em 0;
+  text-transform: uppercase;
+}
+
+.share-button {
+  bottom: 20px;
+  cursor: pointer;
+  height: 50px;
+  position: absolute;
+  right: 10px;
+  width: 50px;
+  z-index: 500;
+  img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.share-inner-wrap {
+  max-width: 500px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 90%;
+}
+
+.share-page {
+  background-color: rgba( 255, 255, 255, 0.8);
+  box-shadow: $shadow-standard;
+  bottom: 0;
+  color: $dark-grey;
+  min-width: 170px;
+  overflow: scroll;
+  padding: 0 2em;
+  position: fixed;
+  right: 0;
+  top: 0;
+  text-align: center;
+  transition: transform 250ms ease;
+  transform: translate(0, -150%);
+  width: 100%;
+  z-index: 5000;
+  &.show{
+    transform: translate(0, 0);
+  }
+}
+
+.social-link {
+  display: block;
+}
+
+.social-icon {
+  border: none;
+  margin: 0 auto;
+  width: 4em;
+}
+
+.share-copy {
+  font-family: "Futura Today Light", Arial,sans-serif;
+  max-width: 30em;
+  margin: 2em auto 1em auto;
+}
+
+.share-title {
+  @extend .nav-header;
+}
+
+.share-close-button {
+  // height: 4em;
+  cursor: pointer;
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+}
+.close-icon {
+  heigh: 2em;
+  width: 2em;
+}
+.buttom-buttons {
+  height: 60px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.info-text {
+  @extend .share-copy;
+}

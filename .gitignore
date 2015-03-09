@@ -1,0 +1,89 @@
+# don't commit changes to data
+src/data/data.json
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
+
+# Sphinx documentation
+docs/_build/
+
+
+# Common things
+**/.DS_Store
+**/node_modules
+**/.sass-cache/
+**/bower_components
+**/.tmp
+
+deps/
+node_modules/
+*.py[cod]
+mylocal.py
+python_result.xml
+coverage.xml
+.cache/
+www/
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# IDE Files
+atlassian-ide-plugin.xml
+.idea/
+
+# Deployment Files
+*.pem
+
+# VM files
+.vagrant/
+bootversion.txt
+setup/modules/stdlib/
+
+
+#Do not upload test results
+python_result.xml
+
+.DS_Store
+
+# Media Assetts
+assetts/
+img/
+images/

@@ -1,0 +1,381 @@
+@mixin panel(){
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transition: transform 250ms ease;
+  width: 100%;
+}
+
+/******
+
+default page style overrides
+
+******/
+
+html, body, .transition-wrap,  article.padded-container, .non-article-content { height: 100% !important; }
+
+footer { display: none !important;}
+
+article {
+  height: 100% !important;
+  padding: 0 !important;
+  width: 100%;
+}
+
+div.non-article-content{
+  padding: 0;
+}
+
+ #overlay {
+  height: calc(100% - 40px);
+}
+
+section.contents {
+  height: calc(100% - 50px);
+}
+
+/******
+
+quiz layout styles
+
+******/
+
+.done {
+  transform: translate(0, -100%);
+}
+
+.upcoming {
+  transform: translate(0, 100%);
+}
+
+.active {
+  transform: translate(0, 0);
+}
+
+.intro, .quiz, .quiz-intro, .question-panel, .question-image, .results-panel, .results  {
+  @include panel();
+}
+
+.intro {
+  height: 100%;
+}
+
+.quiz-container {
+  min-height: 100%;
+  margin: 0 auto;
+  max-width: 540px;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+}
+
+.quiz-intro {
+  z-index: 3;
+}
+
+.question-content {
+  overflow: auto !important;
+  position: relative;
+}
+
+.single {
+  .intro-panel {
+    cursor: default;
+    .background {
+      height: 100%;
+    }
+  }
+}
+.intro-panel {
+  cursor: pointer;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%; 
+  .background {
+    position: absolute;
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.single-image {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.intro-image, .question-image, .single-image {
+  height: 100%;
+  z-index: -1;
+  img {
+    
+    &.wide {
+      min-height: 100%;
+      width: 100%;
+    }
+    &.tall {
+      height: 100%;
+      min-width: 100%;
+    }
+    
+    
+  }
+}
+
+.single .intro-panel img {
+  &.wide {
+      min-height: 100%;
+      width: 100%;
+    }
+    &.tall {
+      height: 100%;
+      min-width: 100%;
+    }
+}
+
+.quiz-question-count {
+  font-family: "Futura Today Light", Arial,sans-serif;
+  font-size: 1.2rem;
+  left: 1.5rem;
+  position: absolute;
+  top: 1.5rem;
+  z-index: 2;
+}
+
+// .quiz-share-button {
+//   border-radius: 50%;
+//   height: 3rem;
+//   position: absolute;
+//   right: .5rem;
+//   top: .5rem;
+//   width: 3rem;
+//   z-index: 2;
+//   img {
+//     left: 50%;
+//     position: absolute;
+//     top: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 50%;
+//   }
+// }
+
+.intro-label {
+  border-radius: 50%;
+  height: 300px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  h2 {
+    font-family: "Futura Today Light", Arial,sans-serif;
+    font-size: 5rem;
+    left: 50%;
+    position: absolute;
+    text-transform: uppercase;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.results-text {
+  border-radius: 50%;
+  height: 300px;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+}
+
+@media (max-width: 414px) {
+  .results-text, .intro-label {
+    height: 250px;
+    top: 35%;
+    width: 250px;
+  }
+
+  .intro-label h2 {
+    font-size: 4em;
+  }
+}
+
+.results-text-inner-wrap {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  p {
+    font-family: "Futura Today Light", Arial, sans-serif;
+    font-size: 1.2rem;
+    @media (max-width: 414px) {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.result-header {
+  font-family: "Futura Today DemiBold", Arial, sans-serif;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  @media (max-width: 414px) {
+      font-size: 1.1rem;
+    }
+}
+
+.next-button, .intro-button, .quiz-share-button {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  height: 100px;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 70%;
+  
+  width: 100px;
+}
+
+.single {
+  .next-button, .quiz-share-button, .intro-button {
+    display: none;
+  }
+}
+
+.iFrame {
+  .next-button, .intro-button {
+    top: 20%;
+  }
+}
+
+.next-button, .quiz-share-button {
+  transform: translate(50%, -50%);
+}
+
+.intro-button {
+  transform: translate(-150%, -50%);
+}
+
+.results-panel.active .next-button, .results-panel.active .intro-button, .results-panel.active .quiz-share-button {
+  animation-name: fade-in;
+  animation-fill-mode:forwards;
+  animation-timing-function: ease;
+  animation-duration:2s;
+  animation-delay: 2s;
+}
+
+.final-results-panel {
+  position: relative;
+}
+
+.next-text {
+  font-family: "Futura Today DemiBold", Arial,sans-serif;
+  left: 50%;
+  position: absolute;
+  text-transform: uppercase;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+
+.intro-background-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.finished .intro-background-overlay {
+  opacity: 1;
+}
+
+.life .intro-label { @include life-bg(0.5)}
+.news .intro-label { @include news-bg(0.5)}
+.tech .intro-label { @include tech-bg(0.5)}
+.money .intro-label { @include money-bg(0.5)}
+.sports .intro-label { @include sports-bg(0.5)}
+
+.life .results-text, .life.next-button { @include life-bg(0.8)}
+.news .results-text, .news.next-button { @include news-bg(0.8)}
+.tech .results-text, .tech.next-button { @include tech-bg(0.8)}
+.money .results-text, .money.next-button { @include money-bg(0.8)}
+.sports .results-text, .sports.next-button { @include sports-bg(0.8)}
+.all .results-text, .life.next-button { @include all-bg(0.8)}
+
+.answer, .next-button, .quiz-share-button { cursor: pointer; }
+
+
+.play-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 100px;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  h3 {
+    font-family: "Futura Today Light", Arial, sans-serif;
+    left: 50%;
+    position: absolute;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+    top: 50%;
+  }
+}
+
+
+/***
+Single quiz share buttons
+***/
+
+.results-panel .social-buttons {
+  display: none;
+}
+
+.single .results-panel .social-buttons {
+  display: block;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 300px;
+  @extend .group;
+  .social-link {
+    display: inline-block;
+    float: left;
+    width: 80px;
+    border-radius: 50%;
+    background-color: rgba(50, 50, 50, 0.5);
+    height: 80px;
+    margin: 0 10px;
+    position: relative;
+    .social-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.results-panel .credit {
+  bottom: 10px;
+  font-size: 0.8em;
+  left: 10px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}

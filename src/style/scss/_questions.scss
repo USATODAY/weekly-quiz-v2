@@ -1,0 +1,393 @@
+$selected-border-width: 8px;
+
+.question-text {  
+  font-family: "Futura Today Light", Arial,sans-serif;
+  font-size: 1.5em;
+  margin-bottom:0;
+  margin-top: 0;
+  padding: 2rem .5rem;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.question-panel {
+  // background-color: rgb(0,0,0);
+}
+.question-content { @include panel;}
+
+.multi-text {
+  .answer { 
+    margin: 0.5em auto;
+    padding: 1em 0;
+    position: relative;
+    text-align: center;
+    transition: background 500ms ease;
+    width: 90%;
+  }
+
+  .question-response {
+    margin-bottom: 1rem;
+  }
+}
+
+/******
+
+section colors for questions
+
+******/
+
+.life {
+  &.true-false, &.multi-text {
+    .answer { 
+      @include life-bg(0.5); 
+      &.selected {
+        @include life-bg(1); 
+      }
+    }
+  }
+  .quiz-share-button {@include life-bg(0.3);}
+  @include question-border($purple);
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap { border: solid $selected-border-width $purple;}
+  .answer-response-image { border: solid 5px $purple; fill: $purple; }
+}
+
+.news {
+  &.true-false, &.multi-text {
+     .answer { 
+        @include news-bg(0.5); 
+        &.selected {
+          @include news-bg(1); 
+        }
+      }
+  }
+  .quiz-share-button {@include news-bg(0.3);}
+  @include question-border($blue);
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap { border: solid $selected-border-width $blue;}
+  .answer-response-image { border: solid 5px $blue; fill: $blue; }
+}
+
+.sports {
+  &.true-false, &.multi-text {
+     .answer { 
+        @include sports-bg(0.5); 
+        &.selected {
+          @include sports-bg(1); 
+        }
+      }
+  }
+  .quiz-share-button {@include sports-bg(0.3);}
+  @include question-border($red);
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap { border: solid $selected-border-width $red;}
+  .answer-response-image { border: solid 5px $red; fill: $red; }
+}
+
+.tech {
+  &.true-false, &.multi-text {
+     .answer { 
+        @include tech-bg(0.5); 
+        &.selected {
+          @include tech-bg(1); 
+        }
+      }
+  }
+  .quiz-share-button {@include tech-bg(0.3);}
+  @include question-border($orange);
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap { border: solid $selected-border-width $orange;}
+  .answer-response-image { border: solid 5px $orange; fill: $orange; }
+}
+
+.money {
+  &.true-false, &.multi-text {
+     .answer { 
+      @include money-bg(0.5); 
+      &.selected {
+        @include money-bg(1); 
+      }
+    }
+  }
+  .quiz-share-button {@include money-bg(0.3);}
+  @include question-border($green);
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap  { border: solid $selected-border-width $green;}
+  .answer-response-image { border: solid 5px $green; fill: $green; }
+}
+
+.weather {
+  &.true-false, &.multi-text {
+     .answer { 
+      @include weather-bg(0.5); 
+      &.selected {
+        @include weather-bg(1); 
+      }
+    }
+  }
+  .quiz-share-button {@include weather-bg(0.3);}
+  @include question-border($yellow);
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap { border: solid $selected-border-width $yellow;}
+  .answer-response-image { border: solid 5px $yellow; fill: $yellow; }
+}
+
+.travel {
+  &.true-false, &.multi-text {
+     .answer { 
+      @include travel-bg(0.5); 
+      &.selected {
+        @include travel-bg(1); 
+      }
+    }
+  }
+  .quiz-share-button {@include travel-bg(0.3);}
+  @include question-border($teal);
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap  { border: solid $selected-border-width $teal;}
+  .answer-response-image { border: solid 5px $teal; fill: $teal; }
+}
+
+/******
+
+answer types
+
+******/
+
+.true-false .answer {
+  
+  border-radius: 50%;
+  height: 100px;
+  margin: 0.5em auto;
+  padding: 1em 0;
+  position: relative;
+  text-align: center;
+  transition: background 500ms ease;
+  width: 100px;
+}
+
+.true-false .answer-text {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.answer-text {
+  font-family: "Futura Today Light", Arial,sans-serif;
+  font-size: 1.2em;
+}
+
+.multi-photo {
+  .question-buttons {
+    @extend .group; 
+    margin: 0 auto;
+    width: 100%;
+  }
+  .outer-image-wrap {
+    position: relative;
+  }
+  .image-wrap {
+      border-radius: 50%;
+      margin: 0 auto;
+      overflow: hidden;
+      width: 100%;
+      @media (max-width: 400px) {
+        width: 70%;
+      }
+   }
+  .answer {
+    border: solid 0px white;
+    float: left;
+    margin: 0 4% 1em 4%;
+    
+    position: relative;
+    transition: border 250ms ease;
+    width: 42%;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+    .answer-text {
+      display: block;
+      margin-top: 0.5em;
+      text-align: center;
+      width: 100%;
+    }
+    &:nth-child(3n) {
+      clear: left;
+    }
+  }
+}
+
+.large-image {
+    .question-buttons {
+        @extend .group; 
+        margin: 0 auto;
+        margin-top: 2em;
+        width: 90%;
+    }
+    .answer {
+        float: left;
+        position: relative;
+        width: 48%;
+        &:nth-child(1) {
+            margin-right: 2%
+        }
+        img {
+            display: block;
+            width: 100%;
+        }
+        .answer-text {
+            display: inline-block;
+            text-align: center;
+            width: 100%
+        }
+    }
+
+    .image-wrap {
+        border: solid $selected-border-width rgba(255, 255, 255, 0);
+        border-radius: 5px;
+        margin: 0 auto;
+        overflow: hidden;
+        transition: border 250ms ease;
+    }
+
+
+    .answer-response-image {
+        right: -24px;
+        top: -24px;
+        z-index: 20;
+        @media (max-width: 400px) {
+            right: -16px;
+            top: -16px;
+        }
+    }
+
+}
+
+.img-overlay {
+    background-color: black;
+    height: 100%;
+    left: 0;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    transition: all 500ms;
+    width: 100%;
+    z-index: 0;
+  }
+
+.question-image {
+
+  .large-opacity {
+    opacity: 0.3;
+  }
+
+  .medium-opacity {
+    opacity: 0.2;
+  }
+
+  .small-opacity {
+    opacity: 0.1;
+    }
+}
+
+.question-response {
+  font-family: "Futura Today Bold", Arial,sans-serif;
+  height: 1.5rem;
+  font-size: 1.5rem;
+  opacity: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.question-response.show {
+  animation-name: fade-in;
+  animation-fill-mode:forwards;
+  animation-timing-function: ease;
+  animation-duration:250ms;
+  animation-delay: 250ms;
+}
+
+.selected, .correct, .incorrect {
+  .answer-response-image {
+    opacity: 1;
+  }
+}
+
+.answer-response-image {
+  
+  border-radius: 50%;
+  height: 3em;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 250ms ease;
+  transition-delay: 250ms;
+  width: 3em;
+  &.correct { background-color: white;}
+  &.wrong { background-color: black;}
+  svg {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+  }
+  @media (max-width: 400px) {
+    height: 2.5em;
+    width: 2.5em;
+  }
+}
+
+.multi-photo .answer-response-image {
+   right: 0;
+   top: 40%;
+   transform: translate(0%, 100%);
+   @media (max-width: 400px) {
+    right: 5%;
+    top: 20%;
+   }
+}
+
+.multi-text .answer-response-image {
+   left: 0;
+   top: 50%;
+   transform: translate(-25%, -50%);
+}
+
+.true-false .answer-response-image {
+   right: -10px;
+   top: 0px;
+}
+
+/******
+
+progress bar
+
+******/
+
+.question-progress-bar {
+  background-color: $dark-grey;
+  height: $selected-border-width;
+  opacity: 0;
+  position: relative;
+  transition: opacity 250ms ease;
+  transition-delay: 1.5s;
+  width: 100%;
+  z-index: 2;
+}
+
+.quiz.active .question-progress-bar {
+  opacity: 1;
+}
+
+.question-progress-inner {
+  background-color: $light-grey;
+  height: 100%;
+  transition: all 2000ms ease;
+  transform: scaleX(0);
+  transform-origin: 0;
+  width: 100%;
+  &.news { background-color: $blue;}
+  &.sports { background-color: $red;}
+  &.life { background-color: $purple;}
+  &.money { background-color: $green;}
+  &.tech { background-color: $orange;}
+  &.weather { background-color: $yellow;}
+  &.travel { background-color: $teal;}
+}

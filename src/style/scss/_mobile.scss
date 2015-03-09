@@ -1,0 +1,210 @@
+.wrap.mobile-wrap{
+
+  background: white;
+  bottom: auto;
+  box-shadow: $shadow-standard;
+  height: auto;
+  margin: 0 auto;
+  max-width: 800px;
+  min-height: 100%;
+  min-width: 0;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+
+  #search_cont{
+    color: $dark-grey;
+    display: block;
+    padding: 0;
+    width: 100%;
+  }
+  
+  #company_search_box {
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 2px $light-grey;
+    color: $dark-grey;
+    font-size: 1.2em;
+  }
+  
+  .form-control:-moz-placeholder {
+    color: $medium-grey;
+  }
+
+  .form-control::-moz-placeholder {
+    color: $medium-grey;
+  }
+
+  .form-control:-ms-input-placeholder {
+    color: $medium-grey;
+  }
+
+  .form-control::-webkit-input-placeholder {
+    color: $medium-grey;
+  }
+
+  .mobile-head {
+    float: left;
+    font-size: 0.90em;
+    margin: .5em;
+    padding-top: 7px;
+  }
+
+  .data-popover{
+    left: 5%;
+    width: 90%;
+  }
+
+  #panel-head {
+    display: block;
+  }
+
+  .panel-data {
+    padding: 0 5%;
+    margin-bottom: 1em;
+  }
+
+  .data-column {
+    width: 33.33333%;
+  }
+
+  #data-column4 {
+    display: block;
+    float: none;
+    height: 8em;
+    margin: 0 auto;
+    .compare-tag {
+      margin-top: 1em;
+      position: static;
+    }
+  }
+
+  .metal-miles {
+    margin-bottom: 6px;
+  }
+
+  a { text-decoration: none};
+  
+  .mobile-back-bar {
+    background: $blue;
+    color: white;
+    cursor: pointer;
+    font-family: "Futura Today Light", Arial,sans-serif;
+    font-size: 1.2em;
+    padding: .5em 0;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  .mobile-back-arrow {
+    margin: 0 .5em;
+    width: 0.5em;
+  }
+
+  .data-decription, .compare-tag {
+    font-size: 1em;
+    position: static;
+    @media (max-width: 800px) {
+      font-size: 0.8em;
+    }
+  }
+
+  .chart-percent-text {
+    @media (min-width: 600px) {
+      font-size: 2em;
+    }
+    @media (min-width: 1000px) {
+      font-size: 2.5em;
+    }
+  }
+}
+
+.preloader-mobile {
+  @extend .preloader;
+  background-color: white !important;
+}
+
+
+.mobile-company-info-box {
+  background-color: rgba(0, 0, 0, 0.30);
+  border-radius: 2em;
+  color: white;
+  font-family: "Futura Today Light", Arial,sans-serif;
+  margin: 1em auto;
+  max-width: 90%;
+  padding: 4em;
+  text-align: center;
+  text-transform: uppercase;
+  width: 20em;
+  z-index: 10;
+}
+
+.mobile-footer {
+  background: $blue;
+  color: white;
+  font-family: Arial,sans-serif;
+  font-size: 8pt;
+  padding: 2em 1em;
+  // text-align: right;
+  // text-transform: uppercase;
+  a.mobile-footer-link {
+    color: white;
+    display: block;
+    font-family: "Futura Today DemiBold", Arial,sans-serif;
+    font-size: 2em;
+    // text-align: right;
+    margin-bottom: 0.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  
+}
+
+html.mobile {
+  height: auto;
+  overflow: auto;
+}
+
+a.article-button {
+  bottom: 22px;
+  font-size: 0.8em;
+  left: 50%;
+  opacity: 1;
+  position: absolute;
+  text-decoration: none;
+  transform: translate(-50%, 0);
+  transition: opacity 300ms ease;
+  z-index: 500;
+  &:hover {
+    // background-color: #FFFFFF;
+    // opacity: 0.8;
+  }
+}
+
+.info-button {
+  bottom: 20px;
+  cursor: pointer;
+  height: 50px;
+  position: absolute;
+  left: 10px;
+  width: 50px;
+  z-index: 500;
+  img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.info-page {
+  @extend .share-page;
+}
+
+.info-close-button {
+  @extend .share-close-button;
+}

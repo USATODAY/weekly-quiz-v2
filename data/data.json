@@ -1,0 +1,335 @@
+[
+    {
+        "results": [
+            {
+                "text": "Close your brokerage account now. Buy a mutual fund.",
+                "share_text": "I'm dollar-cost averaging into an index fund. How'd you do?",
+                "range": "3"
+            },
+            {
+                "text": "Stop bragging about your stocks at cocktail parties. You\u2019re not that good.",
+                "share_text": "I guess I'm no Carl Icahn. What was your score?",
+                "range": "6"
+            },
+            {
+                "text": "You might want to apply for that hedge fund internship.",
+                "share_text": "I'm a CNBC addict. Test your knowledge.",
+                "range": "9"
+            },
+            {
+                "text": "Move over Warren Buffett.",
+                "share_text": "Warren Buffett, here I come! Think you can top me?",
+                "range": "10"
+            }
+        ],
+        "quiz_num": "1",
+        "section": "all",
+        "params": [
+            {
+                "label": "Nasdaq 5000: Test your knowledge",
+                "start_back": "main-background.jpg",
+                "generic_share": "It's been 15 years since the Nasdaq closed above 5000. What do you remember about then and know about now?",
+                "sponsor_photo": "",
+                "single_image_quiz": "TRUE",
+                "sub_label": "",
+                "base_path": "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/money/test-your-nasdaq-knowledge/",
+                "background": "nasdaqv2.jpg",
+                "sponsor_text": "",
+                "title": "Nasdaq 5000: Test your knowledge"
+            }
+        ],
+        "questions": [
+            {
+                "answers": [
+                    {
+                        "correct": "x",
+                        "answer": "3 months",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "18 months",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "5 years",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "2 years",
+                        "image": ""
+                    }
+                ],
+                "type": "multi-text",
+                "value": "It\u2019s been 15 years since the Nasdaq first broke 5000. Roughly how long did it take to go from 4000 to 5000?",
+                "section": "money",
+                "q_id": "1",
+                "image": ""
+            },
+            {
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "17",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "103",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "2",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "56",
+                        "image": ""
+                    }
+                ],
+                "type": "multi-text",
+                "value": "How many times has the Nasdaq closed above 5000?",
+                "section": "money",
+                "q_id": "2",
+                "image": ""
+            },
+            {
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "Apple",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Cisco",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Pets.com",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "Facebook",
+                        "image": ""
+                    }
+                ],
+                "type": "multi-text",
+                "value": "What tech company did not exist when the Nasdaq peaked 15 years ago?",
+                "section": "money",
+                "q_id": "3",
+                "image": ""
+            },
+            {
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "54%",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "65%",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "72%",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "90%",
+                        "image": ""
+                    }
+                ],
+                "type": "multi-text",
+                "value": "Technology stocks account for about 40% of the Nasdaq today. What was their weighting on March 10, 2000?",
+                "section": "money",
+                "q_id": "4",
+                "image": ""
+            },
+            {
+                "answers": [
+                    {
+                        "correct": "x",
+                        "answer": "Consumer services",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Health care",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Oil and gas",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Financials",
+                        "image": ""
+                    }
+                ],
+                "type": "multi-text",
+                "value": "Sixty percent of the current Nasdaq stocks are not technology. What\u2019s the sector with the next most companies?",
+                "section": "money",
+                "q_id": "5",
+                "image": ""
+            },
+            {
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "405",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "561",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "760",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "1207",
+                        "image": ""
+                    }
+                ],
+                "type": "multi-text",
+                "value": "There are 445 tech stocks in the Nasdaq today. How many tech stocks were in the Nasdaq in March 2000?",
+                "section": "money",
+                "q_id": "6",
+                "image": ""
+            },
+            {
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "Cisco Systems",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Intel",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Oracle",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "Microsoft",
+                        "image": ""
+                    }
+                ],
+                "type": "multi-text",
+                "value": "What was the most valuable company in the Nasdaq the day it peaked?",
+                "section": "money",
+                "q_id": "7",
+                "image": ""
+            },
+            {
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "14,164.53",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "11,722.98",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "10,463.78",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "9,786.43",
+                        "image": ""
+                    }
+                ],
+                "type": "multi-text",
+                "value": "The Nasdaq peaked at 5046.71. What was the Dow Jones industrial average\u2019s peak in 2000?",
+                "section": "money",
+                "q_id": "8",
+                "image": ""
+            },
+            {
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "1.39%",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "2.03%",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "6.34%",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "9.64%",
+                        "image": ""
+                    }
+                ],
+                "type": "multi-text",
+                "value": "The yield on the benchmark 10-year Treasury note now is roughly 2%. What was it when the Nasdaq crossed 5000 in March 2000?",
+                "section": "money",
+                "q_id": "9",
+                "image": ""
+            },
+            {
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "Duke",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Connecticut",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "Michigan State",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Kentucky",
+                        "image": ""
+                    }
+                ],
+                "type": "multi-text",
+                "value": "The Nasdaq peaked in March 2000 just as the NCAA Men\u2019s Basketball Tournament was about to begin. What team won the championship?",
+                "section": "money",
+                "q_id": "10",
+                "image": ""
+            }
+        ],
+        "background": "bg-news.jpg"
+    }
+]

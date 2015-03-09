@@ -1,0 +1,73 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Futura Today Bold", Arial,sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+body {
+  color: white;
+  font-size: 80%;
+  font-weight: normal;
+  @media (min-width: 500px) {
+    font-size: 100%;
+  }
+}
+
+.intro-panel {
+  .label {
+    bottom: 0px;
+    color: white;
+    left: 10px;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-transform: uppercase;
+    h3 {
+      font-family: "Futura Today Light", Arial,sans-serif;
+      font-size: 3.5em;
+    }
+  }
+}
+
+.single {
+  .intro-panel .label {
+      background-color: rgba(50, 50, 50, 0.8);
+      border-radius: 50%;
+      height: 300px;
+      left: 50%;
+      position: absolute;
+      text-align: center;
+      top: 30%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      .label-inner-wrap {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      h3 {
+        font-size: 3em;
+        line-height: 1em;
+      }
+      @media (max-width: 414px) {
+        height: 250px;
+        width: 250px;
+      }
+      p {
+        font-family: "Futura Today Light", Arial, sans-serif;
+        font-size: 1.2rem;
+        line-height: 1em; 
+        max-width: 80%;
+        margin: 0 auto;
+        @media (max-width: 414px) {
+          font-size: 0.8rem;
+        }
+      }
+  }
+
+ 
+}

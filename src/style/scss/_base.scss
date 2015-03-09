@@ -1,0 +1,42 @@
+/*
+Base styles for project
+*/
+
+article * {
+   -moz-box-sizing:    border-box;   /* Firefox 1, probably can drop this */
+   -webkit-box-sizing: border-box;   /* Safari 3-4, also probably droppable */
+    box-sizing:        border-box;   /* Everything else */
+}
+
+
+body, div, html, {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body, article.asset {
+  background: url(http://www.gannett-cdn.com/static/images/patterns/noise_f6f6f6.png) top left #f6f6f6;
+  bottom: 0;
+  font-family: "Futura Today Normal", Arial,sans-serif;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
