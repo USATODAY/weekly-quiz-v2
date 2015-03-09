@@ -135,12 +135,12 @@ define(
                 if (!quiz.blnIsSingle) {
                     strHTMLIntro += '    <div class="background"><div class="intro-background-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].params[0].background + '" /></div>';
                 }
-                strHTMLIntro += '    <div class="label"><div class="label-inner-wrap"><h3>' + quiz.objData[index].params[0].label + '</h3>';
-                strHTMLIntro += '    <p class="sub-label">' + quiz.objData[index].params[0].sub_label + '</p></div></div>';
+                strHTMLIntro += '    <div class="label"><h3>' + quiz.objData[index].params[0].label + '</h3>';
+                strHTMLIntro += '    <p class="sub-label">' + quiz.objData[index].params[0].sub_label + '</p></div>';
                 strHTMLIntro += '</div>';
 
                 strHTMLQuizzes += '<div class="quiz ' + quiz.objData[index].section + ' upcoming">';
-                strHTMLQuizzes += '    <div class="question-progress-bar"><div class="question-progress-inner" style="transform: scaleX(0);"></div></div>';
+                strHTMLQuizzes += '    <div class="question-progress-bar"><span class="question-progress-inner">(1/10) Next question</span></div>';
                 
                 strHTMLQuizzes += '    <div class="quiz-intro active">';
                 if (!quiz.blnIsSingle) {
@@ -184,6 +184,7 @@ define(
                         strHTMLQuizzes += '            </div>';
                     });
                     strHTMLQuizzes += '            </div>';
+                    strHTMLQuizzes += '            <div class="question-context">' + quiz.objData[index].questions[qindex].context + '"</div>';
                     strHTMLQuizzes += '        </div>';
                     if (!quiz.blnIsSingle) {
                     strHTMLQuizzes += '        <div class="question-image"><div class="img-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[qindex].image + '" /></div>';
@@ -232,8 +233,11 @@ define(
             quiz.arrQuizSubLabels = jQuery(".sub-label");
             quiz.arrShareShowButtons = jQuery(".quiz-share-button");
             quiz.arrShareCloseButtons = jQuery(".share-close-button");
-
             quiz.arrProgressBars = jQuery(".question-progress-inner");
+            quiz.objProgressSection = jQuery(".question-progress-bar");
+            quiz.arrQuestionButtons = jQuery(".question-buttons");
+            quiz.arrQuestionContext = jQuery(".question-context");
+            quiz.arrImageOverlays = jQuery(".img-overlay");
             quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").add(".single-image").find("img");
             if (quiz.numTotalQuizzes < 2) {
                 quiz.arrShareButtons = quiz.arrQuizResults.eq(0).find("a");
@@ -241,7 +245,7 @@ define(
                 quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").add(".intro-panel").add(".single-image").find("img");
                 quiz.objQuizContainer.addClass("single");
                 quiz.arrQuizIntros.removeClass("active").addClass("done");
-                quiz.objMainIntro.append("<div class='play-button'><h3>Play</h3></div>");
+                quiz.objMainIntro.append("<div class='play-button'><h3>Begin</h3></div>");
                 quiz.objPlayButton = jQuery(".play-button");
                 quiz.arrQuestions = quiz.arrQuizzes.eq(quiz.currentQuiz).find(".question-panel");
                 quiz.arrQuestions.eq(quiz.currentQuestion).removeClass("upcoming").addClass("active");
@@ -281,8 +285,6 @@ define(
                     }
                 });
             }
-
-
 
             quiz.arrQuizHome.click(function(e) {
                 quiz.arrQuizzes.eq(quiz.currentQuiz).removeClass("active").addClass("done");
@@ -328,6 +330,11 @@ define(
             quiz.arrShareButtons.eq(2).click(function(e) {
                 Analytics.click('Email share');
             });
+
+            quiz.objProgressSection.click(function(e) {
+                quiz.nextQuestion();
+                Analytics.click('Next question clicked');
+            });
         };
 
         quiz.startQuiz = function() {
@@ -360,8 +367,8 @@ define(
 
         quiz.nextQuestion = function() {
             var quizPercentComplete = quiz.currentQuestion / quiz.arrNumQuizQuestions[quiz.currentQuiz];
-            quiz.arrProgressBars.eq(quiz.currentQuiz).css("transform", ("scaleX(" + quizPercentComplete + ")"));
-
+            //quiz.arrProgressBars.eq(quiz.currentQuiz).css("transform", ("scaleX(" + quizPercentComplete + ")"));
+            quiz.objProgressSection.removeClass("show");
             if (quiz.currentQuestion < quiz.arrNumQuizQuestions[quiz.currentQuiz]) {
                 quiz.arrProgressBars.removeClass().addClass("question-progress-inner " + quiz.objData[quiz.currentQuiz].questions[quiz.currentQuestion].section);
                 quiz.arrQuestions.eq(quiz.currentQuestion).removeClass("upcoming").addClass("active");
@@ -412,8 +419,17 @@ define(
                 quiz.arrNumQuizCorrect[quiz.currentQuiz] = quiz.arrNumQuizCorrect[quiz.currentQuiz] + 1;
             }
             quiz.objResponse.addClass("show");
+            setTimeout(quiz.renderContext, 2000);
+        };
+
+        quiz.renderContext = function() {
+            quiz.arrQuestionButtons.eq(quiz.currentQuestion).addClass("hide");
+            quiz.arrQuestionContext.eq(quiz.currentQuestion).addClass("show");
+            quiz.arrProgressBars.text("(" + (quiz.currentQuestion + 1).toString() + "/" + quiz.arrNumQuizQuestions[quiz.currentQuiz] +  ") Next Question");
+            quiz.objProgressSection.addClass("show");
+            console.log(quiz.arrImageOverlays.length);
+            quiz.arrImageOverlays.eq(quiz.currentQuestion).addClass("dark");
             quiz.currentQuestion = quiz.currentQuestion + 1;
-            setTimeout(quiz.nextQuestion, 2000);
         };
 
         quiz.renderResults = function() {

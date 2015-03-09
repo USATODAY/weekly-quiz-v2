@@ -89,6 +89,7 @@ quiz layout styles
   }
 }
 .intro-panel {
+  background: #000;
   cursor: pointer;
   margin: 0;
   overflow: hidden;
@@ -98,6 +99,7 @@ quiz layout styles
     position: absolute;
     width: 100%;
     img {
+      opacity: 0.6;
       width: 100%;
     }
   }
@@ -316,7 +318,7 @@ quiz layout styles
 
 
 .play-button {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   cursor: pointer;
   height: 100px;
@@ -327,6 +329,7 @@ quiz layout styles
   transform: translate(-50%, -50%);
   width: 100px;
   h3 {
+    color: #000;
     font-family: "Futura Today Light", Arial, sans-serif;
     left: 50%;
     position: absolute;
