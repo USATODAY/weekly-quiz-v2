@@ -1,0 +1,194 @@
+[
+    {
+        "params": [
+            {
+                "sponsor_photo": "",
+                "single_image_quiz": "FALSE",
+                "title": "2014 end of year News quiz",
+                "show_answer": "TRUE",
+                "start_back": "main-background.jpg",
+                "base_path": "http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/",
+                "generic_share": "What did you learn this year? There's only one way to find out. Try this quiz.",
+                "sponsor_text": "",
+                "use_context": "FALSE",
+                "credit": "",
+                "background": "news.jpg",
+                "label": "Quiz:",
+                "sub_label": "What did you learn this year?",
+                "use_timer": "TRUE"
+            }
+        ],
+        "section": "all",
+        "results": [
+            {
+                "share_text": "Things happened this year and clearly I missed the memo. How'd you do?",
+                "text": "You were awake some this year, right?",
+                "range": "1"
+            },
+            {
+                "share_text": "Time to close my Netflix screen and read a little. What's your score?",
+                "text": "A little less Netflix and a little more news, OK?",
+                "range": "3"
+            },
+            {
+                "share_text": "So close, yet so far. Maybe it's time to pick up a newspaper. Test your knowledge.",
+                "text": "OK, you can toss around headlines at a dinner party.",
+                "range": "4"
+            },
+            {
+                "share_text": "I'm pretty much USA TODAY. Think you can top me? ",
+                "text": "Nice! You've got this current events thing down.",
+                "range": "5"
+            }
+        ],
+        "questions": [
+            {
+                "context": "The Michael Brown shooting ignited several days of rioting as tensions boiled over.",
+                "section": "news",
+                "q_id": "1",
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "Daryl Parks\n",
+                        "image": "parks.jpg"
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Jay Nixon",
+                        "image": "nixon.jpg"
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "Benjamin Crump",
+                        "image": "crump.jpg"
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Malik Shabazz",
+                        "image": "shabazz.jpg"
+                    }
+                ],
+                "value": "This attorney, representing the family of Michael Brown, gained national attention when he represented the family of Trayvon Martin in 2012.",
+                "image": "ferguson.jpg",
+                "type": "multi-photo"
+            },
+            {
+                "context": "No one knew they could dance so well!",
+                "section": "life",
+                "q_id": "2",
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "Richard Branson",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Bill Gates",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "Charlie Sheen",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Jon Cryer\n",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Howard Stern\n",
+                        "image": ""
+                    }
+                ],
+                "value": "Who won season 19 of Dancing With the Stars? ",
+                "image": "dancing.jpg",
+                "type": "multi-text"
+            },
+            {
+                "context": "The biggest IPO ever and no one heard of it except for financial nerds.",
+                "section": "money",
+                "q_id": "3",
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "A film production company",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "A Chinese online marketplace company",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "A Silicon Valley startup",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "A Middle Eastern airline",
+                        "image": ""
+                    }
+                ],
+                "value": "Alibaba became the biggest U.S. IPO in history earlier this year. So, what exactly is Alibaba?",
+                "image": "alibaba.jpg",
+                "type": "multi-text"
+            },
+            {
+                "context": "It was a bad year for airlines and we are still not sure exactly what happened.",
+                "section": "news",
+                "q_id": "4",
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "TRUE",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "FALSE",
+                        "image": ""
+                    }
+                ],
+                "value": "Two Malaysia Airline disasters killed more than 500 people in 2014. In both incidents, the jets were shot down over Ukraine.",
+                "image": "malaysia.jpg",
+                "type": "true-false"
+            },
+            {
+                "context": "These countries were able to get a jump on the Ebola outbreaks and stem them before they became widespread.",
+                "section": "news",
+                "q_id": "5",
+                "answers": [
+                    {
+                        "correct": "",
+                        "answer": "Guinea and Sierra Leone",
+                        "image": ""
+                    },
+                    {
+                        "correct": "x",
+                        "answer": "Nigeria and Senegal",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Liberia and Senegal",
+                        "image": ""
+                    },
+                    {
+                        "correct": "",
+                        "answer": "Mali and the USA",
+                        "image": ""
+                    }
+                ],
+                "value": "In which countries has the Ebola outbreak officially been declared over? ",
+                "image": "ebola.jpg",
+                "type": "multi-text"
+            }
+        ],
+        "quiz_num": "1",
+        "background": "bg-news.jpg"
+    }
+]

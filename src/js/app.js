@@ -36,6 +36,12 @@ define(
             quiz.staticInfo = [];
             quiz.staticSection = jQuery(".staticinfo");
             quiz.blnIsSingle = false;
+            quiz.blnUseContext = false;
+            quiz.blnShowAnswer = false;
+            quiz.blnTimer = false;
+            quiz.numTimerValue = 30; //in seconds
+            quiz.numCountdown = quiz.numTimerValue;
+            quiz.numIntervalId = 0;
             if (quiz.staticSection.length > 0) {
                 quiz.staticInfo = JSON.parse(quiz.staticSection.html());
             } else {
@@ -89,9 +95,21 @@ define(
 
                 jQuery.getJSON("http://" + hostname + "/services/webproxy/?url=" + strURL, function(data) {
                     quiz.objData = data;
-                    if (data[0].params[0].single_image_quiz == "TRUE") {
+                    if (data[0].params[0].single_image_quiz.toUpperCase() == "TRUE") {
                         quiz.blnIsSingle = true;
                         console.log("single = true");
+                    }
+                    if (data[0].params[0].use_context.toUpperCase() == "TRUE") {
+                        quiz.blnUseContext = true;
+                        console.log("context = true");
+                    }
+                    if (data[0].params[0].show_answer.toUpperCase() == "TRUE") {
+                        quiz.blnShowAnswer = true;
+                        console.log("answer = true");
+                    }
+                    if (data[0].params[0].use_timer.toUpperCase() == "TRUE") {
+                        quiz.blnTimer = true;
+                        console.log("timer = true");
                     }
                     quiz.renderQuiz();
                     window.setTimeout(function() {
@@ -99,18 +117,29 @@ define(
                     }, 1000);
                 });
             } else {
-                jQuery.getJSON('data/data.json', function(data) {
+                jQuery.getJSON('/js/data/data.json', function(data) {
                     quiz.objData = data;
-                    if (data[0].params[0].single_image_quiz == "TRUE") {
+                    if (data[0].params[0].single_image_quiz.toUpperCase() == "TRUE") {
                         quiz.blnIsSingle = true;
                         console.log("single = true");
+                    }
+                    if (data[0].params[0].use_context.toUpperCase() == "TRUE") {
+                        quiz.blnUseContext = true;
+                        console.log("context = true");
+                    }
+                    if (data[0].params[0].show_answer.toUpperCase() == "TRUE") {
+                        quiz.blnShowAnswer = true;
+                        console.log("answer = true");
+                    }
+                    if (data[0].params[0].use_timer.toUpperCase() == "TRUE") {
+                        quiz.blnTimer = true;
+                        console.log("timer = true");
                     }
                     quiz.renderQuiz();
                     window.setTimeout(function() {
                         $(".preloader-mobile").eq(0).fadeOut(500);
                     }, 1000);
                 });
-
                 
 
                 onresize = function() {
@@ -140,7 +169,8 @@ define(
                 strHTMLIntro += '</div>';
 
                 strHTMLQuizzes += '<div class="quiz ' + quiz.objData[index].section + ' upcoming">';
-                strHTMLQuizzes += '    <div class="question-progress-bar"><span class="question-progress-inner">(1/10) Next question</span></div>';
+                strHTMLQuizzes += '    <div class="question-progress-bar"><span class="question-progress-inner">Next question</span></div>';
+                strHTMLQuizzes += '    <div class="question-number">1/10</div>';
                 
                 strHTMLQuizzes += '    <div class="quiz-intro active">';
                 if (!quiz.blnIsSingle) {
@@ -172,7 +202,7 @@ define(
                         if (quiz.objData[index].questions[qindex].answers[aindex].image !== "") {
                             strHTMLQuizzes += '                <div class="outer-image-wrap"><div class="image-wrap"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[qindex].answers[aindex].image + '" /></div>';
                         }
-                        if (quiz.objData[index].questions[qindex].answers[aindex].correct == "x") {
+                        if (quiz.objData[index].questions[qindex].answers[aindex].correct.toLowerCase() == "x") {
                             strHTMLQuizzes += '                <div class="answer-response-image correct">' + strSVGCheck + '</div>';
                         } else {
                             strHTMLQuizzes += '                <div class="answer-response-image wrong">' + strSVGX + '</div>';
@@ -235,6 +265,7 @@ define(
             quiz.arrShareCloseButtons = jQuery(".share-close-button");
             quiz.arrProgressBars = jQuery(".question-progress-inner");
             quiz.objProgressSection = jQuery(".question-progress-bar");
+            quiz.objQuestionNumber = jQuery(".question-number");
             quiz.arrQuestionButtons = jQuery(".question-buttons");
             quiz.arrQuestionContext = jQuery(".question-context");
             quiz.arrImageOverlays = jQuery(".img-overlay");
@@ -369,6 +400,7 @@ define(
             var quizPercentComplete = quiz.currentQuestion / quiz.arrNumQuizQuestions[quiz.currentQuiz];
             //quiz.arrProgressBars.eq(quiz.currentQuiz).css("transform", ("scaleX(" + quizPercentComplete + ")"));
             quiz.objProgressSection.removeClass("show");
+            quiz.objQuestionNumber.removeClass("show");
             if (quiz.currentQuestion < quiz.arrNumQuizQuestions[quiz.currentQuiz]) {
                 quiz.arrProgressBars.removeClass().addClass("question-progress-inner " + quiz.objData[quiz.currentQuiz].questions[quiz.currentQuestion].section);
                 quiz.arrQuestions.eq(quiz.currentQuestion).removeClass("upcoming").addClass("active");
@@ -402,46 +434,111 @@ define(
             quiz.objImagePanel.addClass("blur");
 
             quiz.objQuestionContent.removeClass("upcoming").addClass("active");
+            if ((quiz.blnTimer) && (quiz.blnShowAnswer)) {
+                quiz.objResponse.addClass("show");
+                quiz.numIntervalId = setInterval(quiz.renderTime, 1000);
+            }
             quiz.arrAnswers.one("click", function(e) {
+                if ((quiz.blnTimer) && (quiz.blnShowAnswer)) {
+                    clearInterval(quiz.numIntervalId);
+                    quiz.numCountdown = quiz.numTimerValue;
+                }
                 quiz.renderAnswer(quiz.arrAnswers.index(this));
             });
         };
 
-        quiz.renderAnswer = function(intSelected) {
-            if (intSelected !== quiz.correctAnswer) {
-                quiz.objResponse.html("wrong!");
-                quiz.arrAnswers.eq(intSelected).addClass("wrong").addClass("selected");
-                quiz.arrAnswers.eq(quiz.correctAnswer).addClass("correct");
-
+        quiz.renderTime = function() {
+            var numMinutes = Math.floor(quiz.numCountdown / 60);
+            var numSeconds = quiz.numCountdown % 60;
+            var strTime = "";
+/*
+            if (numMinutes > 1) {
+                strTime = numMinutes.toString() + ":" + (quiz.numCountdown % 60).toString();
             } else {
-                quiz.objResponse.html("correct!");
-                quiz.arrAnswers.eq(quiz.correctAnswer).addClass("correct").addClass("selected");
-                quiz.arrNumQuizCorrect[quiz.currentQuiz] = quiz.arrNumQuizCorrect[quiz.currentQuiz] + 1;
+                strTime = ":" + (quiz.numCountdown % 60).toString();
+            }
+*/
+            if (numSeconds < 10) {
+                strTime = numMinutes.toString() + ":0" + (quiz.numCountdown % 60).toString();
+            } else {
+                strTime = numMinutes.toString() + ":" + (quiz.numCountdown % 60).toString();
+            }
+            if (quiz.numCountdown > 0){
+                quiz.objResponse.html(strTime);
+            } else {
+                clearInterval(quiz.numIntervalId);
+                quiz.numCountdown = quiz.numTimerValue;
+                quiz.objResponse.html("Times up!");
+                quiz.renderAnswer(-1);
+            }
+            quiz.numCountdown = quiz.numCountdown - 1;
+        };
+
+        quiz.renderAnswer = function(intSelected) {
+            if (intSelected !== -1) {
+                if (intSelected !== quiz.correctAnswer) {
+                    if (quiz.blnShowAnswer) {
+                        quiz.objResponse.html("wrong!");
+                        quiz.arrAnswers.eq(intSelected).addClass("wrong").addClass("selected");
+                        quiz.arrAnswers.eq(quiz.correctAnswer).addClass("correct");
+                    }
+                } else {
+                    if (quiz.blnShowAnswer) {
+                        quiz.objResponse.html("correct!");
+                        quiz.arrAnswers.eq(quiz.correctAnswer).addClass("correct").addClass("selected");
+                    }
+                    quiz.arrNumQuizCorrect[quiz.currentQuiz] = quiz.arrNumQuizCorrect[quiz.currentQuiz] + 1;
+                }
+            } else {
+                quiz.arrAnswers.eq(quiz.correctAnswer).addClass("correct");
             }
             quiz.objResponse.addClass("show");
-            setTimeout(quiz.renderContext, 2000);
+            if (quiz.blnShowAnswer) {
+                if (quiz.blnUseContext) {
+                    setTimeout(quiz.renderContext, 2000);
+                } else {
+                    quiz.currentQuestion = quiz.currentQuestion + 1;
+                    setTimeout(quiz.nextQuestion, 2000);
+                }
+            } else {
+                quiz.currentQuestion = quiz.currentQuestion + 1;
+                quiz.nextQuestion();
+            }
         };
 
         quiz.renderContext = function() {
             quiz.arrQuestionButtons.eq(quiz.currentQuestion).addClass("hide");
             quiz.arrQuestionContext.eq(quiz.currentQuestion).addClass("show");
-            quiz.arrProgressBars.text("(" + (quiz.currentQuestion + 1).toString() + "/" + quiz.arrNumQuizQuestions[quiz.currentQuiz] +  ") Next Question");
+            quiz.objQuestionNumber.text((quiz.currentQuestion + 1).toString() + "/" + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString());
             quiz.objProgressSection.addClass("show");
-            console.log(quiz.arrImageOverlays.length);
+            quiz.objQuestionNumber.addClass("show");
             quiz.arrImageOverlays.eq(quiz.currentQuestion).addClass("dark");
             quiz.currentQuestion = quiz.currentQuestion + 1;
-        };
+            if (quiz.currentQuestion >= quiz.arrNumQuizQuestions[quiz.currentQuiz]) {
+                quiz.arrProgressBars.text("Results");
+            }
+       };
 
         quiz.renderResults = function() {
             var strResultsText, strShareText;
             jQuery.each(quiz.arrResultsRange, function(rindex) {
                 if ((quiz.arrNumQuizCorrect[quiz.currentQuiz] <= quiz.arrResultsRange[rindex]) || (quiz.arrNumQuizCorrect[quiz.currentQuiz] >= quiz.arrResultsRange[quiz.arrResultsRange.length - 1])) {
                     if (quiz.arrNumQuizCorrect[quiz.currentQuiz] <= quiz.arrResultsRange[rindex]) {
-                        strResultsText = "<div class='results-text-inner-wrap'><h3 class='result-header'>You got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct!</h3> <p>" + quiz.arrResultsText[rindex] + "</p></div>";
-                        strShareText = "I got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct! " + quiz.arrResultsShare[rindex];
+                        if (quiz.blnShowAnswer) {
+                            strResultsText = "<div class='results-text-inner-wrap'><h3 class='result-header'>You got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct!</h3> <p>" + quiz.arrResultsText[rindex] + "</p></div>";
+                            strShareText = "I got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct! " + quiz.arrResultsShare[rindex];
+                        } else {
+                            strResultsText = "<div class='results-text-inner-wrap'><p>" + quiz.arrResultsText[rindex] + "</p></div>";
+                            strShareText = quiz.arrResultsShare[rindex];
+                        }
                     } else {
-                        strResultsText = "<div class='results-text-inner-wrap'><h3 class='result-header'>You got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct!</h3> <p>" + quiz.arrResultsText[quiz.arrResultsRange.length - 1] + "</p></div>";
-                        strShareText = "I got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct! " + quiz.arrResultsShare[quiz.arrResultsRange.length - 1];
+                        if (quiz.blnShowAnswer) {
+                            strResultsText = "<div class='results-text-inner-wrap'><h3 class='result-header'>You got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct!</h3> <p>" + quiz.arrResultsText[quiz.arrResultsRange.length - 1] + "</p></div>";
+                            strShareText = "I got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct! " + quiz.arrResultsShare[quiz.arrResultsRange.length - 1];
+                        } else {
+                            strResultsText = "<div class='results-text-inner-wrap'><p>" + quiz.arrResultsText[quiz.arrResultsRange.length - 1] + "</p></div>";
+                            strShareText = quiz.arrResultsShare[quiz.arrResultsRange.length - 1];
+                        }
                     }
                     return false;
                 }
