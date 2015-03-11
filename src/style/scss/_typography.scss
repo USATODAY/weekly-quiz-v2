@@ -26,7 +26,7 @@ body {
     position: absolute;
     text-transform: uppercase;
     h3 {
-      font-family: "Futura Today Bold", Arial,sans-serif;
+      font-family: "Futura Today DemiBold", Arial,sans-serif;
       font-size: 3.5em;
     }
   }
@@ -38,7 +38,7 @@ body {
       position: absolute;
       text-align: left;
       top: 10%;
-      width: 90%;
+      width: 80%;
       .label-inner-wrap {
         left: 50%;
         position: absolute;
@@ -53,9 +53,9 @@ body {
         width: 100%;
       }
       p {
-        font-family: "Futura Today Light", Arial, sans-serif;
+        font-family: "Futura Today Normal", Arial, sans-serif;
         font-size: 3.5rem;
-        line-height: 1em; 
+        line-height: 1.2em; 
         max-width: 80%;
         @media (max-width: 414px) {
           font-size: 0.8rem;

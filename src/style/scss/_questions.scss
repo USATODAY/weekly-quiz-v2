@@ -4,8 +4,8 @@ $selected-border-width: 8px;
   font-family: "Futura Today Light", Arial,sans-serif;
   font-size: 1.5em;
   margin-bottom:0;
-  margin-top: 0;
-  padding: 2rem .5rem;
+  margin-top: 1rem;
+  padding: 1rem .5rem;
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
@@ -26,7 +26,7 @@ $selected-border-width: 8px;
   }
 
   .question-response {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -181,7 +181,7 @@ answer types
      @extend .group;
      margin: 0 auto;
      margin-top: 2em;
-     width: 90%;
+     width: 70%;
   }
 
   .outer-image-wrap {
@@ -321,6 +321,7 @@ answer types
   font-family: "Futura Today Bold", Arial,sans-serif;
   height: 1.5rem;
   font-size: 1.5rem;
+  margin-bottom: 2rem;
   opacity: 0;
   text-align: center;
   text-transform: uppercase;
@@ -392,18 +393,16 @@ progress bar
 ******/
 
 .question-progress-bar {
-  bottom: 5%;
+  bottom: 2rem;
   cursor: pointer;
   display: none;
-  height: $selected-border-width;
   opacity: 0;
   position: absolute;
-  right: 5%;
+  right: 0;
   text-align: right;
   text-transform: uppercase;
   transition: opacity 250ms ease;
   transition-delay: 1.5s;
-  width: 60%;
   z-index: 2;
 }
 
@@ -414,9 +413,8 @@ progress bar
 .question-progress-inner {
   background-color: $light-grey;
   height: 100%;
-  padding: 0.5em;
+  padding: 1em;
   transition: all 2000ms ease;
-  transform: scaleX(0);
   transform-origin: 0;
   width: 100%;
   &.news { background-color: $blue;}
@@ -432,7 +430,7 @@ progress bar
   display: block;
 }
 .question-number {
-  bottom: 5%;
+  bottom: 3.5rem;
   cursor: pointer;
   display: none;
   height: $selected-border-width;
@@ -453,4 +451,19 @@ progress bar
 
 .question-number.show {
   display: block;
+}
+
+.quiz-question-timer-sub {
+    font-family: "Futura Today Light", Arial, sans-serif;
+    font-size: 0.8em;
+}
+
+.next-question-button-arrow {
+    display: inline-block;
+    width: 20px;
+}
+
+.next-question-button-text {
+    bottom: 8.75px;
+    position: relative;
 }
