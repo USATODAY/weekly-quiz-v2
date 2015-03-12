@@ -89,7 +89,7 @@ quiz layout styles
   }
 }
 .intro-panel {
-  background: #000;
+  // background: #000;
   cursor: pointer;
   margin: 0;
   overflow: hidden;
@@ -99,7 +99,6 @@ quiz layout styles
     position: absolute;
     width: 100%;
     img {
-      opacity: 0.6;
       width: 100%;
     }
   }
@@ -290,10 +289,9 @@ quiz layout styles
 }
 
 .intro-background-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   height: 100%;
   left: 0;
-  opacity: 0;
   position: absolute;
   top: 0;
   width: 100%;
