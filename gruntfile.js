@@ -326,20 +326,14 @@ module.exports = function(grunt) {
       },
       upload1: {
         files: {
-          '/17200/experiments/usatoday/2015/01/weekly-quiz/': 'js/main.js'
+          '/17200/experiments/usatoday/2015/quizzes/v2-codebase/': 'js/main.js'
           // '/17200/experiments/usatoday/2015/1/weekly-quiz/': 'data/*.json'
         }
       },
       upload2: {
         files: {
-          '/17200/experiments/usatoday/2015/01/weekly-quiz/': 'style/project.css'
+          '/17200/experiments/usatoday/2015/quizzes/v2-codebase/': 'style/project.css'
           // '/17200/experiments/usatoday/2015/1/weekly-quiz/': 'data/*.json'
-        }
-      },
-      upload3: {
-        files: {
-
-          '/17200/experiments/usatoday/2015/01/weekly-quiz/': 'data/*.json'
         }
       }
     },

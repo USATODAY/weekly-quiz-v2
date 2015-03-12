@@ -159,17 +159,18 @@ define(
 
             var strSVGCheck = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.7 70" enable-background="new 0 0 66.7 70" xml:space="preserve"> <path d="M24.8,70c-2.2,0-4.2-1-5.6-2.8L1.4,43.6c-2.3-3.1-1.7-7.4,1.3-9.8c3.1-2.3,7.4-1.7,9.8,1.3l11.8,15.5L53.8,3.3 c2-3.3,6.3-4.3,9.6-2.2c3.3,2,4.3,6.3,2.2,9.6L30.8,66.7c-1.2,1.9-3.3,3.2-5.6,3.3C25.1,70,24.9,70,24.8,70z"/></svg>';
             var strSVGX = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63.1 69.8" enable-background="new 0 0 63.1 69.8" xml:space="preserve"><path d="M60.7,56L42.2,34.9l18.5-21.1c3.1-3.1,3.1-8.2,0-11.4c-3.1-3.1-8.2-3.1-11.4,0L31.5,22.7L13.7,2.4c-3.1-3.1-8.2-3.1-11.4,0 c-3.1,3.1-3.1,8.2,0,11.4l18.5,21.1L2.4,56c-3.1,3.1-3.1,8.2,0,11.4c3.1,3.1,8.2,3.1,11.4,0l17.8-20.3l17.8,20.3 c3.1,3.1,8.2,3.1,11.4,0C63.9,64.3,63.9,59.2,60.7,56z"/></svg>';
+            var strSVGRightArrow = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62.2 97" enable-background="new 0 0 62.2 97" xml:space="preserve"><polygon fill="#FFFFFF" points="13.7,0 0,13.7 34.8,48.5 0,83.3 13.7,97 62.2,48.5 "/></svg>'
             jQuery.each(quiz.objData, function(index) {
                 strHTMLIntro += '<div class="intro-panel" style="height: ' + (100 / quiz.numTotalQuizzes).toString() + '%;">';
                 if (!quiz.blnIsSingle) {
-                    strHTMLIntro += '    <div class="background"><div class="intro-background-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].params[0].background + '" /></div>';
+                    strHTMLIntro += '    <div class="background"><div class="intro-background-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].params[0].background + '" class="intro-image"/></div>';
                 }
                 strHTMLIntro += '    <div class="label"><h3>' + quiz.objData[index].params[0].label + '</h3>';
                 strHTMLIntro += '    <p class="sub-label">' + quiz.objData[index].params[0].sub_label + '</p></div>';
                 strHTMLIntro += '</div>';
 
                 strHTMLQuizzes += '<div class="quiz ' + quiz.objData[index].section + ' upcoming">';
-                strHTMLQuizzes += '    <div class="question-progress-bar"><span class="question-progress-inner">Next question</span></div>';
+                strHTMLQuizzes += '    <div class="question-progress-bar"><div class="question-progress-inner"><span class="next-question-button-text">Next question</span> <span class="next-question-button-arrow">' + strSVGRightArrow + '</span></div></div>';
                 strHTMLQuizzes += '    <div class="question-number">1/10</div>';
                 
                 strHTMLQuizzes += '    <div class="quiz-intro active">';
@@ -195,7 +196,11 @@ define(
                     strHTMLQuizzes += '    <div class="question-panel upcoming ' + quiz.objData[index].questions[qindex].type + ' ' + quiz.objData[index].questions[qindex].section + '">';
                     strHTMLQuizzes += '        <div class="question-content upcoming">';
                     strHTMLQuizzes += '            <div class="question-text">' + quiz.objData[index].questions[qindex].value + '</div>';
-                    strHTMLQuizzes += '            <div class="question-response"></div>';
+                    if (quiz.blnTimer) {
+                        strHTMLQuizzes += '            <div class="question-response show">0:30<div class="quiz-question-timer-sub">seconds left</div></div>';
+                    } else {
+                        strHTMLQuizzes += '            <div class="question-response"></div>';
+                    }
                     strHTMLQuizzes += '            <div class="question-buttons">';
                     jQuery.each(quiz.objData[index].questions[qindex].answers, function(aindex) {
                         strHTMLQuizzes += '            <div class="answer">';
@@ -214,7 +219,7 @@ define(
                         strHTMLQuizzes += '            </div>';
                     });
                     strHTMLQuizzes += '            </div>';
-                    strHTMLQuizzes += '            <div class="question-context">' + quiz.objData[index].questions[qindex].context + '"</div>';
+                    strHTMLQuizzes += '            <div class="question-context">' + quiz.objData[index].questions[qindex].context + '</div>';
                     strHTMLQuizzes += '        </div>';
                     if (!quiz.blnIsSingle) {
                     strHTMLQuizzes += '        <div class="question-image"><div class="img-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[qindex].image + '" /></div>';
@@ -463,6 +468,8 @@ define(
             } else {
                 strTime = numMinutes.toString() + ":" + (quiz.numCountdown % 60).toString();
             }
+            strTime += "<div class='quiz-question-timer-sub'>seconds left</div>";
+
             if (quiz.numCountdown > 0){
                 quiz.objResponse.html(strTime);
             } else {

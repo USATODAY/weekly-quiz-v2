@@ -10,7 +10,7 @@
                 "base_path": "http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/",
                 "generic_share": "What did you learn this year? There's only one way to find out. Try this quiz.",
                 "sponsor_text": "",
-                "use_context": "FALSE",
+                "use_context": "TRUE",
                 "credit": "",
                 "background": "news.jpg",
                 "label": "Quiz:",
