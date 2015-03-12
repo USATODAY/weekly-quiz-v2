@@ -5,3 +5,60 @@
   &.tech {background-color: $orange;}
   &.sports {background-color: $red;}
 }
+
+.results-text {
+  left: 5%;
+  position: absolute;
+  text-align: left;
+  text-transform: uppercase;
+  top: 10%;
+  width: 80%;
+}
+
+@media (max-width: 414px) {
+  .results-text, .intro-label {
+    height: 250px;
+    // top: 35%;
+    width: 90%;
+  }
+
+  .intro-label h2 {
+    font-size: 4em;
+  }
+}
+
+.results-text-inner-wrap {
+   // bottom: 0px;
+   //  color: white;
+   //  left: 10px;
+   //  font-size: 1em;
+   //  margin: 0;
+   //  padding: 0;
+   //  position: absolute;
+   //  text-transform: uppercase;
+    h3 {
+      font-family: "Futura Today DemiBold", Arial,sans-serif;
+      font-size: 3.5em;
+    }
+     p {
+        font-family: "Futura Today Normal", Arial, sans-serif;
+        font-size: 3.5rem;
+        line-height: 1.2em; 
+        max-width: 80%;
+        @media (max-width: 414px) {
+          font-size: 2.4rem;
+        }
+        margin-top: 0.2em;
+      }
+
+}
+
+// .result-header {
+//   font-family: "Futura Today DemiBold", Arial, sans-serif;
+//   font-size: 1.8rem;
+//   text-transform: uppercase;
+//   @media (max-width: 414px) {
+//       font-size: 1.1rem;
+//     }
+// }
+

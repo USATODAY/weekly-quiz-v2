@@ -514,6 +514,7 @@ define(
         };
 
         quiz.renderContext = function() {
+            var strSVGRightArrow = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62.2 97" enable-background="new 0 0 62.2 97" xml:space="preserve"><polygon fill="#FFFFFF" points="13.7,0 0,13.7 34.8,48.5 0,83.3 13.7,97 62.2,48.5 "/></svg>'
             quiz.arrQuestionButtons.eq(quiz.currentQuestion).addClass("hide");
             quiz.arrQuestionContext.eq(quiz.currentQuestion).addClass("show");
             quiz.objQuestionNumber.text((quiz.currentQuestion + 1).toString() + "/" + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString());
@@ -522,7 +523,7 @@ define(
             quiz.arrImageOverlays.eq(quiz.currentQuestion).addClass("dark");
             quiz.currentQuestion = quiz.currentQuestion + 1;
             if (quiz.currentQuestion >= quiz.arrNumQuizQuestions[quiz.currentQuiz]) {
-                quiz.arrProgressBars.text("Results");
+                quiz.arrProgressBars.html('<span class="next-question-button-text">Results</span> <span class="next-question-button-arrow">' + strSVGRightArrow + '</span>');
             }
        };
 
