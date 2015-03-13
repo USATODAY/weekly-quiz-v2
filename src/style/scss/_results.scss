@@ -36,13 +36,14 @@
    //  padding: 0;
    //  position: absolute;
    //  text-transform: uppercase;
-    h3 {
+    
+   h3 {
       font-family: "Futura Today DemiBold", Arial,sans-serif;
       font-size: 3.5em;
     }
      p {
         font-family: "Futura Today Normal", Arial, sans-serif;
-        font-size: 3.5rem;
+        font-size: 2rem;
         line-height: 1.2em; 
         max-width: 80%;
         @media (max-width: 414px) {
