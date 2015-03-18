@@ -179,7 +179,6 @@ answer types
   }
   .question-context {
      @extend .group;
-     margin: 0 auto;
      margin-top: 2em;
      width: 70%;
   }
@@ -225,7 +224,8 @@ answer types
     @extend .group;
     display: none;
     font-size: 1.3em;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 2em;
     margin-bottom: 100px;
     width: 90%;
