@@ -28,38 +28,22 @@
 }
 
 .results-text-inner-wrap {
-   // bottom: 0px;
-   //  color: white;
-   //  left: 10px;
-   //  font-size: 1em;
-   //  margin: 0;
-   //  padding: 0;
-   //  position: absolute;
-   //  text-transform: uppercase;
-    
-   h3 {
+    h3 {
       font-family: "Futura Today DemiBold", Arial,sans-serif;
       font-size: 3.5em;
-    }
-     p {
+      @media (max-width: 414px) {
+        font-size: 3em;
+      }
+    p {
         font-family: "Futura Today Normal", Arial, sans-serif;
         font-size: 2rem;
         line-height: 1.2em; 
         max-width: 80%;
         @media (max-width: 414px) {
-          font-size: 2.4rem;
+          font-size: 1.75rem;
         }
         margin-top: 0.2em;
       }
 
 }
-
-// .result-header {
-//   font-family: "Futura Today DemiBold", Arial, sans-serif;
-//   font-size: 1.8rem;
-//   text-transform: uppercase;
-//   @media (max-width: 414px) {
-//       font-size: 1.1rem;
-//     }
-// }
 

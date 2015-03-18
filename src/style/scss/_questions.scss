@@ -227,6 +227,7 @@ answer types
     font-size: 1.3em;
     margin: 0 auto;
     margin-top: 2em;
+    margin-bottom: 100px;
     width: 90%;
 }
 .question-context.show {
@@ -397,6 +398,7 @@ progress bar
   bottom: 2rem;
   cursor: pointer;
   display: none;
+  height: 3.5rem;
   opacity: 0;
   position: absolute;
   right: 0;
@@ -405,6 +407,9 @@ progress bar
   transition: opacity 250ms ease;
   transition-delay: 1.5s;
   z-index: 2;
+  @media(max-height: 461px) {
+    bottom: 0;
+  }
 }
 
 .quiz.active .question-progress-bar {
@@ -418,13 +423,13 @@ progress bar
   transition: all 2000ms ease;
   transform-origin: 0;
   width: 100%;
-  &.news { background-color: $blue;}
-  &.sports { background-color: $red;}
-  &.life { background-color: $purple;}
-  &.money { background-color: $green;}
-  &.tech { background-color: $orange;}
-  &.weather { background-color: $yellow;}
-  &.travel { background-color: $teal;}
+  &.news { @include news-bg(0.9);}
+  &.sports { @include sports-bg(0.9);}
+  &.life { @include life-bg(0.9);}
+  &.money { @include money-bg(0.9);}
+  &.tech { @include tech-bg(0.9);}
+  &.weather { @include weather-bg(0.9);}
+  &.travel { @include travel-bg(0.9);}
 }
 
 .question-progress-bar.show {
@@ -445,6 +450,11 @@ progress bar
   transition-delay: 1.5s;
   width: 40%;
   z-index: 2;
+  @media (max-height: 461px) {
+    &.show{
+      display: none !important;
+    }
+  }
 }
 
 .quiz.active .question-number {
