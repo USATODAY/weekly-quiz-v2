@@ -508,8 +508,12 @@ define(
                     setTimeout(quiz.nextQuestion, 2000);
                 }
             } else {
-                quiz.currentQuestion = quiz.currentQuestion + 1;
-                quiz.nextQuestion();
+                if (quiz.blnUseContext) {
+                    quiz.renderContext();
+                } else {
+                    quiz.currentQuestion = quiz.currentQuestion + 1;
+                    quiz.nextQuestion();
+                }
             }
         };
 
