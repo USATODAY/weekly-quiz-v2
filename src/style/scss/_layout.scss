@@ -187,53 +187,53 @@ quiz layout styles
   }
 }
 
-.results-text {
-  border-radius: 50%;
-  height: 300px;
-  left: 50%;
-  position: absolute;
-  text-align: center;
-  top: 30%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-}
-
-@media (max-width: 414px) {
-  .results-text, .intro-label {
-    height: 250px;
-    top: 35%;
-    width: 250px;
-  }
-
-  .intro-label h2 {
-    font-size: 4em;
-  }
-}
-
-.results-text-inner-wrap {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  p {
-    font-family: "Futura Today Light", Arial, sans-serif;
-    font-size: 1.2rem;
-    @media (max-width: 414px) {
-      font-size: 0.8rem;
-    }
-  }
-}
-
-.result-header {
-  font-family: "Futura Today DemiBold", Arial, sans-serif;
-  font-size: 1.8rem;
-  text-transform: uppercase;
-  @media (max-width: 414px) {
-      font-size: 1.1rem;
-    }
-}
-
+// .results-text {
+//   border-radius: 50%;
+//   height: 300px;
+//   left: 50%;
+//   position: absolute;
+//   text-align: center;
+//   top: 30%;
+//   transform: translate(-50%, -50%);
+//   width: 300px;
+// }
+//
+// @media (max-width: 414px) {
+//   .results-text, .intro-label {
+//     height: 250px;
+//     top: 35%;
+//     width: 250px;
+//   }
+//
+//   .intro-label h2 {
+//     font-size: 4em;
+//   }
+// }
+//
+// .results-text-inner-wrap {
+//   left: 50%;
+//   position: absolute;
+//   top: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 90%;
+//   p {
+//     font-family: "Futura Today Light", Arial, sans-serif;
+//     font-size: 1.2rem;
+//     @media (max-width: 414px) {
+//       font-size: 0.8rem;
+//     }
+//   }
+// }
+//
+// .result-header {
+//   font-family: "Futura Today DemiBold", Arial, sans-serif;
+//   font-size: 1.8rem;
+//   text-transform: uppercase;
+//   @media (max-width: 414px) {
+//       font-size: 1.1rem;
+//     }
+// }
+//
 .next-button, .intro-button, .quiz-share-button {
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
@@ -308,13 +308,13 @@ quiz layout styles
 .money .intro-label { @include money-bg(0.5)}
 .sports .intro-label { @include sports-bg(0.5)}
 
-.life .results-text, .life.next-button { @include life-bg(0.8)}
-.news .results-text, .news.next-button { @include news-bg(0.8)}
-.tech .results-text, .tech.next-button { @include tech-bg(0.8)}
-.money .results-text, .money.next-button { @include money-bg(0.8)}
-.sports .results-text, .sports.next-button { @include sports-bg(0.8)}
-.all .results-text, .life.next-button { @include all-bg(0.8)}
-
+// .life .results-text, .life.next-button { @include life-bg(0.8)}
+// .news .results-text, .news.next-button { @include news-bg(0.8)}
+// .tech .results-text, .tech.next-button { @include tech-bg(0.8)}
+// .money .results-text, .money.next-button { @include money-bg(0.8)}
+// .sports .results-text, .sports.next-button { @include sports-bg(0.8)}
+// .all .results-text, .life.next-button { @include all-bg(0.8)}
+//
 .answer, .next-button, .quiz-share-button { cursor: pointer; }
 
 
@@ -350,9 +350,9 @@ Single quiz share buttons
 }
 
 .single .results-panel .social-buttons {
+  bottom: 2rem;
   display: block;
   position: absolute;
-  top: 70%;
   left: 50%;
   transform: translate(-50%, 0);
   width: 300px;
