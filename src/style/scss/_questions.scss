@@ -224,6 +224,7 @@ answer types
 .question-context {
     @extend .group;
     display: none;
+    font-size: 1.3em;
     margin: 0 auto;
     margin-top: 2em;
     margin-bottom: 100px;
@@ -322,6 +323,7 @@ answer types
   font-family: "Futura Today Bold", Arial,sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  margin-top: 1rem;
   opacity: 0;
   text-align: center;
   text-transform: uppercase;
@@ -434,9 +436,10 @@ progress bar
   display: block;
 }
 .question-number {
-  bottom: 3.5rem;
+  bottom: 4.25rem;
   cursor: pointer;
   display: none;
+  font-size: 1.3em;
   height: $selected-border-width;
   opacity: 0;
   position: absolute;
@@ -464,7 +467,7 @@ progress bar
 
 .quiz-question-timer-sub {
     font-family: "Futura Today Light", Arial, sans-serif;
-    font-size: 0.8em;
+    font-size: 0.5em;
 }
 
 .next-question-button-arrow {
@@ -473,6 +476,7 @@ progress bar
 }
 
 .next-question-button-text {
-    bottom: 8.75px;
+    bottom: 8px;
+    font-size: 1.3em;
     position: relative;
 }

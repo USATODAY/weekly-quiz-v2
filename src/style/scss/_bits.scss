@@ -59,7 +59,7 @@ BG Colors
 
 @mixin question-border($color) {
     .question-text {
-        border-left: solid 8px $color;
+        border-left: solid 10px $color;
     }
 }
 

@@ -187,6 +187,7 @@ quiz layout styles
   }
 }
 
+<<<<<<< HEAD
 // .results-text {
 //   border-radius: 50%;
 //   height: 300px;
@@ -234,6 +235,9 @@ quiz layout styles
 //     }
 // }
 //
+=======
+
+>>>>>>> master
 .next-button, .intro-button, .quiz-share-button {
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
@@ -302,11 +306,6 @@ quiz layout styles
   opacity: 1;
 }
 
-.life .intro-label { @include life-bg(0.5)}
-.news .intro-label { @include news-bg(0.5)}
-.tech .intro-label { @include tech-bg(0.5)}
-.money .intro-label { @include money-bg(0.5)}
-.sports .intro-label { @include sports-bg(0.5)}
 
 // .life .results-text, .life.next-button { @include life-bg(0.8)}
 // .news .results-text, .news.next-button { @include news-bg(0.8)}
@@ -314,7 +313,6 @@ quiz layout styles
 // .money .results-text, .money.next-button { @include money-bg(0.8)}
 // .sports .results-text, .sports.next-button { @include sports-bg(0.8)}
 // .all .results-text, .life.next-button { @include all-bg(0.8)}
-//
 .answer, .next-button, .quiz-share-button { cursor: pointer; }
 
 
@@ -353,6 +351,7 @@ Single quiz share buttons
   bottom: 2rem;
   display: block;
   position: absolute;
+  bottom: 2rem;
   left: 50%;
   transform: translate(-50%, 0);
   width: 300px;
