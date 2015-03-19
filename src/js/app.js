@@ -1,7 +1,7 @@
 define(
     [
         'jquery',
-        'analytics'
+        'api/analytics'
     ],
     function(jQuery, Analytics) {
 
@@ -42,6 +42,7 @@ define(
             quiz.numTimerValue = 30; //in seconds
             quiz.numCountdown = quiz.numTimerValue;
             quiz.numIntervalId = 0;
+            quiz.quizName = "";
             if (quiz.staticSection.length > 0) {
                 quiz.staticInfo = JSON.parse(quiz.staticSection.html());
             } else {
@@ -72,12 +73,16 @@ define(
                 var arrParams = strHash.split("/");
                 if (arrParams[0] === "#week") {
                     window.data_url = "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/" + arrParams[1] + "/" + "week" + arrParams[2] + "/data.json";
+                    quiz.quizName = "week" + arrParams[2] + arrParams[1];
                 } else if (arrParams[0] === "#data") {
                     window.data_url = "http://www.gannett-cdn.com/experiments" + strHash.replace("#data", "") + "data.json";
+                    quiz.quizName = arrParams[arrParams.length - 3] + ":" + arrParams[arrParams.length - 2];
                 } else {
                     window.data_url = strHash.replace("#custom/", "");
+                    quiz.quizName = arrParams[arrParams.length - 3] + ":" + arrParams[arrParams.length - 2];
                 }
             }
+            Analytics.trackEvent("quiz:" + quiz.quizName);
             quiz.loadData();
         };
 
@@ -303,7 +308,7 @@ define(
                         quiz.arrQuizzes.eq(quiz.currentQuiz).removeClass("upcoming").addClass("active");
                         quiz.strBackgroundURL = quiz.objData[quiz.currentQuiz].params[0].base_path + quiz.objData[quiz.currentQuiz].background;
                         quiz.checkOrientation();
-                        Analytics.click('Play button click');
+                        Analytics.trackEvent('Play button click');
                         setTimeout(quiz.startQuiz, 1500);
                     }
                 });
@@ -316,7 +321,7 @@ define(
                         quiz.arrQuizzes.eq(quiz.currentQuiz).removeClass("upcoming").addClass("active");
                         quiz.strBackgroundURL = quiz.objData[quiz.currentQuiz].params[0].base_path + quiz.objData[quiz.currentQuiz].background;
                         quiz.checkOrientation();
-                        Analytics.click('Intro panel quiz click');
+                        Analytics.trackEvent('Intro panel quiz click');
                         setTimeout(quiz.startQuiz, 1500);
                     }
                 });
@@ -327,13 +332,13 @@ define(
                 quiz.objMainIntro.removeClass("done").addClass("active");
                 if (quiz.blnAllDone) {
                     quiz.strBackgroundURL = quiz.objData[0].params[0].base_path + quiz.objData[0].params[0].start_back;
-                    Analytics.click('Show intro panel');
+                    Analytics.trackEvent('Show intro panel');
                     quiz.checkOrientation();
                 }
             });
 
             quiz.arrQuizNext.click(function(e) {
-                Analytics.click('Next quiz click');
+                Analytics.trackEvent('Next quiz click');
                 quiz.nextQuiz();
             });
 
@@ -341,13 +346,13 @@ define(
             quiz.arrShareShowButtons.click(function(e) {
                 quiz.arrSharePanel.eq(0).addClass("show");
                 quiz.objQuizContainer.addClass("blur");
-                Analytics.click('Show share panel');
+                Analytics.trackEvent('Show share panel');
             });
 
             quiz.arrShareCloseButtons.click(function(e) {
                 quiz.arrSharePanel.eq(0).removeClass("show");
                 quiz.objQuizContainer.removeClass("blur");
-                Analytics.click('Hide share panel');
+                Analytics.trackEvent('Hide share panel');
             });
 
             $(window).resize(function(e) {
@@ -356,20 +361,20 @@ define(
             });
 
             quiz.arrShareButtons.eq(0).click(function(e) {
-                Analytics.click('Twitter share');
+                Analytics.trackEvent('Twitter share');
             });
 
             quiz.arrShareButtons.eq(1).click(function(e) {
-                Analytics.click('Facebook share');
+                Analytics.trackEvent('Facebook share');
             });
 
             quiz.arrShareButtons.eq(2).click(function(e) {
-                Analytics.click('Email share');
+                Analytics.trackEvent('Email share');
             });
 
             quiz.objProgressSection.click(function(e) {
                 quiz.nextQuestion();
-                Analytics.click('Next question clicked');
+                Analytics.trackEvent('Next question clicked');
             });
         };
 

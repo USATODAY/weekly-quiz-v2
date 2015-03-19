@@ -169,9 +169,9 @@ module.exports = function(grunt) {
             "analytics": "lib/analytics",
             "mobile_detect": "lib/mobile-detect",
             "d3": '../../bower_components/d3/d3',
-            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed'
+            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed',
               // "api/ads": "api/ads",
-              // "api/analytics": "api/analytics"
+            "api/analytics": "lib/analytics"
           },
           "shim": {
             'backbone': {
@@ -198,7 +198,8 @@ module.exports = function(grunt) {
             "exclude": [
               "jquery",
               "underscore",
-              "backbone"
+              "backbone",
+              "api/analytics"
             ]
           }],
           "baseUrl": "<%=config.src%>js",
@@ -221,9 +222,9 @@ module.exports = function(grunt) {
             "analytics": "lib/analytics",
             "mobile_detect": "lib/mobile-detect",
             "d3": '../../bower_components/d3/d3',
-            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed'
+            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed',
               // "api/ads": "api/ads",
-              // "api/analytics": "api/analytics"
+            "api/analytics": "lib/analytics"
           },
           "shim": {
             'backbone': {
