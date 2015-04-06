@@ -233,7 +233,9 @@ define(
 
                 });
                 strHTMLQuizzes += '    <div class="results-panel upcoming">';
+                strHTMLQuizzes += '        <div class="results-content">';
                 strHTMLQuizzes += '        <div class="results-text"></div>';
+                strHTMLQuizzes += '        </div>';
                 strHTMLQuizzes += '        <div class="quiz-share-button"><h4 class="next-text">Share</h4></div>';
                 strHTMLQuizzes += '        <div class="intro-button"><h4 class="next-text">Home</h4></div>';
                 strHTMLQuizzes += '        <div class="social-buttons"> <a href="" class="social-link" id="twitter-share"> <img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/twitter.svg" alt="twitter" class="social-icon"></a>';

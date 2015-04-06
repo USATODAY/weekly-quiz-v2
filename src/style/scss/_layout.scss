@@ -310,7 +310,7 @@ Single quiz share buttons
     float: left;
     width: 80px;
     border-radius: 50%;
-    background-color: rgba(50, 50, 50, 0.5);
+    background-color: rgba(50, 50, 50, 0.9);
     height: 80px;
     margin: 0 10px;
     position: relative;
@@ -323,11 +323,4 @@ Single quiz share buttons
   }
 }
 
-.results-panel .credit {
-  bottom: 10px;
-  font-size: 0.8em;
-  left: 10px;
-  position: absolute;
-  text-align: center;
-  width: 100%;
-}
+
