@@ -7,11 +7,12 @@
 }
 
 .results-text {
-  left: 5%;
-  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 150px;
   text-align: left;
   text-transform: uppercase;
-  top: 10%;
+  margin-top: 10%;
   width: 80%;
 }
 
@@ -47,3 +48,20 @@
       }
 }
 
+.results-panel .credit {
+  bottom: 10px;
+  font-size: 0.8em;
+  left: 0px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.results-panel .results-content{
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    overflow-y: auto;
+}
