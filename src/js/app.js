@@ -569,6 +569,7 @@ define(
             strShareChatter = strShareText;
             strShareHead = strShareHead.replace("'", "\\'");
             strShareChatter = strShareChatter.replace("'", "\\'");
+            strShareChatter = strShareChatter.replace("#", "%23");
             strPageURL = strPageURL.replace("#", "%23");
             strFBURL = "http://" + document.location.host + "/pages/interactives/fb-share/";
             quiz.arrShareButtons.eq(1).attr({
