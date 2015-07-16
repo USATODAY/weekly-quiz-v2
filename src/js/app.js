@@ -70,6 +70,7 @@ define(
         quiz.dataHandler = function() {
             var strHash = document.location.hash;
             if ((strHash) && (strHash !== "") && (strHash !== "#")) {
+                strHash = strHash.substr(0, strHash.lastIndexOf("/") + 1);
                 var arrParams = strHash.split("/");
                 if (arrParams[0] === "#week") {
                     window.data_url = "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/" + arrParams[1] + "/" + "week" + arrParams[2] + "/data.json";
@@ -565,6 +566,7 @@ define(
             strShareChatter = strShareText;
             strShareHead = strShareHead.replace("'", "\\'");
             strShareChatter = strShareChatter.replace("'", "\\'");
+            strShareChatter = strShareChatter.replace("#", "%23");
             strPageURL = strPageURL.replace("#", "%23");
             strFBURL = "http://" + document.location.host + "/pages/interactives/fb-share/";
             quiz.arrShareButtons.eq(1).attr({
