@@ -117,9 +117,7 @@ define(
                         console.log("timer = true");
                     }
                     quiz.renderQuiz();
-                    window.setTimeout(function() {
-                        $(".preloader-mobile").eq(0).fadeOut(500);
-                    }, 1000);
+                    $(".preloader-mobile").eq(0).fadeOut(500);
                 });
             } else {
                 jQuery.getJSON('/js/data/data.json', function(data) {
@@ -141,9 +139,7 @@ define(
                         console.log("timer = true");
                     }
                     quiz.renderQuiz();
-                    window.setTimeout(function() {
-                        $(".preloader-mobile").eq(0).fadeOut(500);
-                    }, 1000);
+                    $(".preloader-mobile").eq(0).fadeOut(500);
                 });
                 
 
@@ -311,7 +307,7 @@ define(
                         quiz.strBackgroundURL = quiz.objData[quiz.currentQuiz].params[0].base_path + quiz.objData[quiz.currentQuiz].background;
                         quiz.checkOrientation();
                         Analytics.trackEvent('Play button click');
-                        setTimeout(quiz.startQuiz, 1500);
+                        quiz.startQuiz();
                     }
                 });
             } else {
@@ -324,7 +320,7 @@ define(
                         quiz.strBackgroundURL = quiz.objData[quiz.currentQuiz].params[0].base_path + quiz.objData[quiz.currentQuiz].background;
                         quiz.checkOrientation();
                         Analytics.trackEvent('Intro panel quiz click');
-                        setTimeout(quiz.startQuiz, 1500);
+                        quiz.startQuiz();
                     }
                 });
             }
@@ -431,7 +427,7 @@ define(
                     quiz.arrResultsRange[rindex] = parseInt(quiz.objData[quiz.currentQuiz].results[rindex].range);
                     quiz.arrResultsShare[rindex] = quiz.objData[quiz.currentQuiz].results[rindex].share_text;
                 });
-                setTimeout(quiz.renderQuestion, 2000);
+                setTimeout(quiz.renderQuestion, 1000);
             } else {
                 quiz.arrProgressBars.removeClass().addClass("question-progress-inner");
                 quiz.objQuestionContent.removeClass("active").addClass("done");
