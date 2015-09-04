@@ -297,21 +297,20 @@ Single quiz share buttons
 }
 
 .single .results-panel .social-buttons {
-  bottom: 2rem;
+  bottom: 5rem;
   display: block;
   position: absolute;
-  bottom: 2rem;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 300px;
+  width: 240px;
   @extend .group;
   .social-link {
     display: inline-block;
     float: left;
-    width: 80px;
+    width: 60px;
     border-radius: 50%;
     background-color: rgba(50, 50, 50, 0.9);
-    height: 80px;
+    height: 60px;
     margin: 0 10px;
     position: relative;
     .social-icon {
