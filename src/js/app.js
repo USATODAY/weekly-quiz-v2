@@ -70,6 +70,10 @@ define(
 
         quiz.dataHandler = function() {
             var strHash = document.location.hash;
+            if (strHash.substr(strHash.length - 1) != '/') {
+                //if url is misisng trailing slash, add it in
+                strHash = strHash + '/';
+            }
             if ((strHash) && (strHash !== "") && (strHash !== "#")) {
                 strHash = strHash.substr(0, strHash.lastIndexOf("/") + 1);
                 var arrParams = strHash.split("/");
