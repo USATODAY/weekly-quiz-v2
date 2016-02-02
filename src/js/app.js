@@ -35,6 +35,7 @@ define(
             quiz.strBackgroundURL = "";
             quiz.staticInfo = [];
             quiz.staticSection = jQuery(".staticinfo");
+            quiz.$transitionWrap = jQuery('.transition-wrap');
             quiz.blnIsSingle = false;
             quiz.blnUseContext = false;
             quiz.blnShowAnswer = false;
@@ -103,19 +104,15 @@ define(
                     quiz.objData = data;
                     if (data[0].params[0].single_image_quiz.toUpperCase() == "TRUE") {
                         quiz.blnIsSingle = true;
-                        console.log("single = true");
                     }
                     if (data[0].params[0].use_context.toUpperCase() == "TRUE") {
                         quiz.blnUseContext = true;
-                        console.log("context = true");
                     }
                     if (data[0].params[0].show_answer.toUpperCase() == "TRUE") {
                         quiz.blnShowAnswer = true;
-                        console.log("answer = true");
                     }
                     if (data[0].params[0].use_timer.toUpperCase() == "TRUE") {
                         quiz.blnTimer = true;
-                        console.log("timer = true");
                     }
                     quiz.renderQuiz();
                     $(".preloader-mobile").eq(0).fadeOut(500);
@@ -125,19 +122,15 @@ define(
                     quiz.objData = data;
                     if (data[0].params[0].single_image_quiz.toUpperCase() == "TRUE") {
                         quiz.blnIsSingle = true;
-                        console.log("single = true");
                     }
                     if (data[0].params[0].use_context.toUpperCase() == "TRUE") {
                         quiz.blnUseContext = true;
-                        console.log("context = true");
                     }
                     if (data[0].params[0].show_answer.toUpperCase() == "TRUE") {
                         quiz.blnShowAnswer = true;
-                        console.log("answer = true");
                     }
                     if (data[0].params[0].use_timer.toUpperCase() == "TRUE") {
                         quiz.blnTimer = true;
-                        console.log("timer = true");
                     }
                     quiz.renderQuiz();
                     $(".preloader-mobile").eq(0).fadeOut(500);
@@ -357,6 +350,8 @@ define(
             $(window).resize(function(e) {
                 quiz.resizeImg();
                 quiz.checkOrientation();
+                //set transition wrap height to the height of parent to fix Chrome bug.
+                quiz.$transitionWrap.height(quiz.$transitionWrap.parent().height());
             });
 
             quiz.arrShareButtons.eq(0).click(function(e) {
