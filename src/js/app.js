@@ -78,10 +78,10 @@ define(
                 strHash = strHash.substr(0, strHash.lastIndexOf("/") + 1);
                 var arrParams = strHash.split("/");
                 if (arrParams[0] === "#week") {
-                    window.data_url = "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/" + arrParams[1] + "/" + "week" + arrParams[2] + "/data.json";
+                    window.data_url = "https://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/" + arrParams[1] + "/" + "week" + arrParams[2] + "/data.json";
                     quiz.quizName = "week" + arrParams[2] + arrParams[1];
                 } else if (arrParams[0] === "#data") {
-                    window.data_url = "http://www.gannett-cdn.com/experiments" + strHash.replace("#data", "") + "data.json";
+                    window.data_url = "https://www.gannett-cdn.com/experiments" + strHash.replace("#data", "") + "data.json";
                     quiz.quizName = arrParams[arrParams.length - 3] + ":" + arrParams[arrParams.length - 2];
                 } else {
                     window.data_url = strHash.replace("#custom/", "");
@@ -104,7 +104,7 @@ define(
 
             if (hostname != "localhost") {
 
-                jQuery.getJSON("http://" + hostname + "/services/webproxy/?url=" + strURL, function(data) {
+                jQuery.getJSON(strURL, function(data) {
                     quiz.objData = data;
                     if (data[0].params[0].single_image_quiz.toUpperCase() == "TRUE") {
                         quiz.blnIsSingle = true;
@@ -160,10 +160,12 @@ define(
             var strSVGX = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63.1 69.8" enable-background="new 0 0 63.1 69.8" xml:space="preserve"><path d="M60.7,56L42.2,34.9l18.5-21.1c3.1-3.1,3.1-8.2,0-11.4c-3.1-3.1-8.2-3.1-11.4,0L31.5,22.7L13.7,2.4c-3.1-3.1-8.2-3.1-11.4,0 c-3.1,3.1-3.1,8.2,0,11.4l18.5,21.1L2.4,56c-3.1,3.1-3.1,8.2,0,11.4c3.1,3.1,8.2,3.1,11.4,0l17.8-20.3l17.8,20.3 c3.1,3.1,8.2,3.1,11.4,0C63.9,64.3,63.9,59.2,60.7,56z"/></svg>';
             var strSVGRightArrow = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62.2 97" enable-background="new 0 0 62.2 97" xml:space="preserve"><polygon fill="#FFFFFF" points="13.7,0 0,13.7 34.8,48.5 0,83.3 13.7,97 62.2,48.5 "/></svg>'
             jQuery.each(quiz.objData, function(index) {
+                quiz.objData[index].params[0].base_path = quiz.objData[index].params[0].base_path.replace(/http:\/\/www.gannett-cdn.com/gi, "https://www.gannett-cdn.com");
                 strHTMLIntro += '<div class="intro-panel" style="height: ' + (100 / quiz.numTotalQuizzes).toString() + '%;">';
                 if (!quiz.blnIsSingle) {
                     strHTMLIntro += '    <div class="background"><div class="intro-background-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].params[0].background + '" class="intro-image"/></div>';
                 }
+                console.log("BASE-PATH: " + quiz.objData[index].params[0].base_path);
                 strHTMLIntro += '    <div class="label"><h3>' + quiz.objData[index].params[0].label + '</h3>';
                 strHTMLIntro += '    <p class="sub-label">' + quiz.objData[index].params[0].sub_label + '</p></div>';
                 strHTMLIntro += '</div>';

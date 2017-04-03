@@ -9,7 +9,7 @@ article * {
 }
 
 
-body, div, html, {
+body, div, html {
   margin: 0;
   padding: 0;
 }
@@ -20,7 +20,7 @@ html {
 }
 
 body, article.asset {
-  background: url(http://www.gannett-cdn.com/static/images/patterns/noise_f6f6f6.png) top left #f6f6f6;
+  background: url(https://www.gannett-cdn.com/static/images/patterns/noise_f6f6f6.png) top left #f6f6f6;
   bottom: 0;
   font-family: "Futura Today Normal", Arial,sans-serif;
   height: 100%;

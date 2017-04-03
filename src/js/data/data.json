@@ -1,1 +1,254 @@
-[{"results": [{"share_text": "I've planned a frugal European trip. How would you plan?", "range": "3", "text": "You\u2019re super frugal on your European vacation, and you'll save even more with the current U.S. to euro exchange rate."}, {"share_text": "I'm saving and splurging on my European trip. How would you plan?", "range": "7", "text": "You\u2019re saving and splurging on your European vacation, and you'll save even more with the current U.S. to euro exchange rate."}, {"share_text": "I've planned an expensive European trip. How would you plan?", "range": "10", "text": "You\u2019re going all out on your European vacation, but the good news is you'll save even more with the current U.S. to euro exchange rate."}], "background": "bg-news.jpg", "section": "all", "quiz_num": "1", "params": [{"sponsor_text": "", "label": "Quiz:", "use_timer": "FALSE", "base_path": "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/travel/europeanfrugaltravel/", "title": "European Frugal Travel Quiz", "sponsor_photo": "", "single_image_quiz": "FALSE", "show_answer": "FALSE", "generic_share": "How frugal of a European trip can you plan?", "use_context": "TRUE", "start_back": "main-background.jpg", "background": "EuroTravel.jpg", "credit": "AP, Getty Images, AFP/Getty Images", "sub_label": "How frugal of a European trip can you plan?"}], "questions": [{"value": "Where would you rather visit in London?", "q_id": "1", "image": "London.gif", "section": "travel", "type": "multi-photo", "answers": [{"correct": "x", "answer": "Tower of London", "image": "TowerLondon.jpg"}, {"correct": "", "answer": "London Eye", "image": "LondonEye.jpg"}], "context": "The Tower of London costs $36 while London Eye costs $45", "source": ""}, {"value": "Where would you rather visit in Paris?", "q_id": "2", "image": "Paris.gif", "section": "travel", "type": "multi-photo", "answers": [{"correct": "x", "answer": "Louvre", "image": "Louvre.jpg"}, {"correct": "", "answer": "Versailles", "image": "Versailles.jpg"}], "context": "The Louvre costs $17 while Versailles costs $19", "source": ""}, {"value": "Where would you rather visit in Rome?", "q_id": "3", "image": "Rome.gif", "section": "travel", "type": "multi-photo", "answers": [{"correct": "", "answer": "Colosseum", "image": "Colosseum.jpg"}, {"correct": "x", "answer": "Castel Sant'Angelo", "image": "Castel.jpg"}], "context": "The Colosseum costs $13 while Castel Sant'Angelo costs $8", "source": ""}, {"value": "Where would you rather visit in London?", "q_id": "4", "image": "London.gif", "section": "travel", "type": "multi-photo", "answers": [{"correct": "x", "answer": "British Museum", "image": "BritishMuseum.jpg"}, {"correct": "", "answer": "Shakespeare's Globe", "image": "Shakespeare.jpg"}], "context": "The British Museum is free while Shakespeare's Globe costs $20", "source": ""}, {"value": "Where would you rather visit in Paris?", "q_id": "5", "image": "Paris.gif", "section": "travel", "type": "multi-photo", "answers": [{"correct": "", "answer": "Eiffel Tower", "image": "Eiffel.jpg"}, {"correct": "x", "answer": "Mus\u00e9e d'Orsay", "image": "Musee.jpg"}], "context": "The Eiffel Tower costs $16 while the Mus\u00e9e d'Orsay costs $12", "source": ""}, {"value": "Where would you rather visit in Rome?", "q_id": "6", "image": "Rome.gif", "section": "travel", "type": "multi-photo", "answers": [{"correct": "", "answer": "Sistine Chapel and Vatican Museums", "image": "Sistine.jpg"}, {"correct": "x", "answer": "St. Peter's Basilica", "image": "Basilica.jpg"}], "context": "The Sistine Chapel and Vatican Museums cost $17 while St. Peter's Basilica is free", "source": ""}, {"value": "Where would you rather visit in London?", "q_id": "7", "image": "London.gif", "section": "travel", "type": "multi-photo", "answers": [{"correct": "x", "answer": "Westminster Abbey", "image": "Westminster.jpg"}, {"correct": "", "answer": "Windsor Castle", "image": "Windsor.jpg"}], "context": "Westminster Abbey costs $8 while Windsor Castle costs $29", "source": ""}, {"value": "Where would you rather visit in Paris?", "q_id": "8", "image": "Paris.gif", "section": "travel", "type": "multi-photo", "answers": [{"correct": "x", "answer": "Notre Dame Cathedral", "image": "NotreDame.jpg"}, {"correct": "", "answer": "Seine River Cruise", "image": "SeineCruise.jpg"}], "context": "Notre Dame Cathedral is free while a Seine River Cruise costs $14", "source": ""}, {"value": "Where would you rather visit in Rome?", "q_id": "9", "image": "Rome.gif", "section": "travel", "type": "multi-photo", "answers": [{"correct": "x", "answer": "Trevi Fountain", "image": "Trevi.jpg"}, {"correct": "", "answer": "Musei Capitolini", "image": "Capitolini.jpg"}], "context": "The Trevi Fountain is free while Musei Capitolini costs $16", "source": ""}, {"value": "Where would you rather visit in London?", "q_id": "10", "image": "London.gif", "section": "travel", "type": "multi-photo", "answers": [{"correct": "", "answer": "\"Harry Potter\" tour", "image": "Potter.jpg"}, {"correct": "x", "answer": "\"The Mousetrap\" play", "image": "Mousetrap.jpg"}], "context": "A \"Harry Potter\" tour costs $49 while \"The Mousetrap\" play costs $34", "source": ""}]}]
+[
+  {
+    "results": [
+      {
+        "share_text": "I've planned a frugal European trip. How would you plan?",
+        "range": "3",
+        "text": "You\u2019re super frugal on your European vacation, and you'll save even more with the current U.S. to euro exchange rate."
+      },
+      {
+        "share_text": "I'm saving and splurging on my European trip. How would you plan?",
+        "range": "7",
+        "text": "You\u2019re saving and splurging on your European vacation, and you'll save even more with the current U.S. to euro exchange rate."
+      },
+      {
+        "share_text": "I've planned an expensive European trip. How would you plan?",
+        "range": "10",
+        "text": "You\u2019re going all out on your European vacation, but the good news is you'll save even more with the current U.S. to euro exchange rate."
+      }
+    ],
+    "background": "bg-news.jpg",
+    "section": "all",
+    "quiz_num": "1",
+    "params": [
+      {
+        "sponsor_text": "",
+        "label": "Quiz:",
+        "use_timer": "FALSE",
+        "base_path": "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/travel/europeanfrugaltravel/",
+        "title": "European Frugal Travel Quiz",
+        "sponsor_photo": "",
+        "single_image_quiz": "FALSE",
+        "show_answer": "FALSE",
+        "generic_share": "How frugal of a European trip can you plan?",
+        "use_context": "TRUE",
+        "start_back": "main-background.jpg",
+        "background": "EuroTravel.jpg",
+        "credit": "AP, Getty Images, AFP/Getty Images",
+        "sub_label": "How frugal of a European trip can you plan?"
+      }
+    ],
+    "questions": [
+      {
+        "value": "Where would you rather visit in London?",
+        "q_id": "1",
+        "image": "London.gif",
+        "section": "travel",
+        "type": "multi-photo",
+        "answers": [
+          {
+            "correct": "x",
+            "answer": "Tower of London",
+            "image": "TowerLondon.jpg"
+          },
+          {
+            "correct": "",
+            "answer": "London Eye",
+            "image": "LondonEye.jpg"
+          }
+        ],
+        "context": "The Tower of London costs $36 while London Eye costs $45",
+        "source": ""
+      },
+      {
+        "value": "Where would you rather visit in Paris?",
+        "q_id": "2",
+        "image": "Paris.gif",
+        "section": "travel",
+        "type": "multi-photo",
+        "answers": [
+          {
+            "correct": "x",
+            "answer": "Louvre",
+            "image": "Louvre.jpg"
+          },
+          {
+            "correct": "",
+            "answer": "Versailles",
+            "image": "Versailles.jpg"
+          }
+        ],
+        "context": "The Louvre costs $17 while Versailles costs $19",
+        "source": ""
+      },
+      {
+        "value": "Where would you rather visit in Rome?",
+        "q_id": "3",
+        "image": "Rome.gif",
+        "section": "travel",
+        "type": "multi-photo",
+        "answers": [
+          {
+            "correct": "",
+            "answer": "Colosseum",
+            "image": "Colosseum.jpg"
+          },
+          {
+            "correct": "x",
+            "answer": "Castel Sant'Angelo",
+            "image": "Castel.jpg"
+          }
+        ],
+        "context": "The Colosseum costs $13 while Castel Sant'Angelo costs $8",
+        "source": ""
+      },
+      {
+        "value": "Where would you rather visit in London?",
+        "q_id": "4",
+        "image": "London.gif",
+        "section": "travel",
+        "type": "multi-photo",
+        "answers": [
+          {
+            "correct": "x",
+            "answer": "British Museum",
+            "image": "BritishMuseum.jpg"
+          },
+          {
+            "correct": "",
+            "answer": "Shakespeare's Globe",
+            "image": "Shakespeare.jpg"
+          }
+        ],
+        "context": "The British Museum is free while Shakespeare's Globe costs $20",
+        "source": ""
+      },
+      {
+        "value": "Where would you rather visit in Paris?",
+        "q_id": "5",
+        "image": "Paris.gif",
+        "section": "travel",
+        "type": "multi-photo",
+        "answers": [
+          {
+            "correct": "",
+            "answer": "Eiffel Tower",
+            "image": "Eiffel.jpg"
+          },
+          {
+            "correct": "x",
+            "answer": "Mus\u00e9e d'Orsay",
+            "image": "Musee.jpg"
+          }
+        ],
+        "context": "The Eiffel Tower costs $16 while the Mus\u00e9e d'Orsay costs $12",
+        "source": ""
+      },
+      {
+        "value": "Where would you rather visit in Rome?",
+        "q_id": "6",
+        "image": "Rome.gif",
+        "section": "travel",
+        "type": "multi-photo",
+        "answers": [
+          {
+            "correct": "",
+            "answer": "Sistine Chapel and Vatican Museums",
+            "image": "Sistine.jpg"
+          },
+          {
+            "correct": "x",
+            "answer": "St. Peter's Basilica",
+            "image": "Basilica.jpg"
+          }
+        ],
+        "context": "The Sistine Chapel and Vatican Museums cost $17 while St. Peter's Basilica is free",
+        "source": ""
+      },
+      {
+        "value": "Where would you rather visit in London?",
+        "q_id": "7",
+        "image": "London.gif",
+        "section": "travel",
+        "type": "multi-photo",
+        "answers": [
+          {
+            "correct": "x",
+            "answer": "Westminster Abbey",
+            "image": "Westminster.jpg"
+          },
+          {
+            "correct": "",
+            "answer": "Windsor Castle",
+            "image": "Windsor.jpg"
+          }
+        ],
+        "context": "Westminster Abbey costs $8 while Windsor Castle costs $29",
+        "source": ""
+      },
+      {
+        "value": "Where would you rather visit in Paris?",
+        "q_id": "8",
+        "image": "Paris.gif",
+        "section": "travel",
+        "type": "multi-photo",
+        "answers": [
+          {
+            "correct": "x",
+            "answer": "Notre Dame Cathedral",
+            "image": "NotreDame.jpg"
+          },
+          {
+            "correct": "",
+            "answer": "Seine River Cruise",
+            "image": "SeineCruise.jpg"
+          }
+        ],
+        "context": "Notre Dame Cathedral is free while a Seine River Cruise costs $14",
+        "source": ""
+      },
+      {
+        "value": "Where would you rather visit in Rome?",
+        "q_id": "9",
+        "image": "Rome.gif",
+        "section": "travel",
+        "type": "multi-photo",
+        "answers": [
+          {
+            "correct": "x",
+            "answer": "Trevi Fountain",
+            "image": "Trevi.jpg"
+          },
+          {
+            "correct": "",
+            "answer": "Musei Capitolini",
+            "image": "Capitolini.jpg"
+          }
+        ],
+        "context": "The Trevi Fountain is free while Musei Capitolini costs $16",
+        "source": ""
+      },
+      {
+        "value": "Where would you rather visit in London?",
+        "q_id": "10",
+        "image": "London.gif",
+        "section": "travel",
+        "type": "multi-photo",
+        "answers": [
+          {
+            "correct": "",
+            "answer": "\"Harry Potter\" tour",
+            "image": "Potter.jpg"
+          },
+          {
+            "correct": "x",
+            "answer": "\"The Mousetrap\" play",
+            "image": "Mousetrap.jpg"
+          }
+        ],
+        "context": "A \"Harry Potter\" tour costs $49 while \"The Mousetrap\" play costs $34",
+        "source": ""
+      }
+    ]
+  }
+]
